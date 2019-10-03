@@ -1,7 +1,11 @@
 /**
  * JavaScript Fluency
  */
-
+/**
+* Parse out the filename from a path based on a Windows or Unix delimiter
+* Moving backwards and going to the first delimiter
+* return the filename
+*/
 function parseFilenameFromPath(fullPath){
     var filename = "";
     if (fullPath != ""){

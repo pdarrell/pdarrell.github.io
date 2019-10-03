@@ -6,6 +6,9 @@
         <meta charset="UTF-8">
        <script src="week-two.js"></script>
        <script>
+			/* getFielname is only called from html and displays the 
+				returned string from the parseFilenameFromPath function
+				to the div on the html*/
             function getFilename(path){
                     var filename = parseFilenameFromPath(path);
                     document.getElementById("output").innerHTML = filename;
@@ -14,7 +17,11 @@
     </head>
     <body>
 	<h2>Find filename</h2>
-        <br>        
+        <br> 
+		Enter a path and filename delimited by  eitehr a Windows (\) or Unix (/) delimiter.
+		Click the Find fielname button.
+		The filename with its extension is displayed below the button.
+		<br>
 	Enter path and filename:
         <input id="input" type="text" value=""/>
         <br>
