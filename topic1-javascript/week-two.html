@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>JavaScript-Loops-Etc</title>
+        <meta charset="UTF-8">
+       <script src="week-two.js"></script>
+       <script>
+            function getFilename(path){
+                    var filename = parseFilenameFromPath(path);
+                    document.getElementById("output").innerHTML = filename;
+            }
+       </script>
+    </head>
+    <body>
+	<h2>Find filename</h2>
+        <br>        
+	Enter path and filename:
+        <input id="input" type="text" value=""/>
+        <br>
+        <input type="button" value="Find filename" onclick="getFilename(document.getElementById('input').value)"/>
+        <div id="output"></div>
+    </body>
+</html>
