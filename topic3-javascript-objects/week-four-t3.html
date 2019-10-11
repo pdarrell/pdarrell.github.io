@@ -19,6 +19,25 @@
                     document.getElementById("stringifyOutput").innerHTML = pkgString;
                     document.getElementById("parseOutput").innerHTML = parseJSONObject(pkgString);
             }
+            /**
+                 * Parse the file system path and retrieve its parts in an object
+                 * @param {type} path
+                 * @returns {undefined}
+                 */
+                function getFileSystemPath(path){
+                    var fileSystemPath = parsePathParts(path);
+                    var filePath = "";
+                    if (fileSystemPath !== "undefined"){
+                        for (i=0; i <= fileSystemPath.length; i++) {
+                            if (filePath == "") {
+                               filePath = fileSystemPath[i];
+                            } else {        
+                                filePath += ";" + fileSystemPath[i];
+                            }
+                        }
+                    }
+                    document.getElementById("fileSystemPath").innerHTML = filePath;
+                }
        </script>
 	   </head>
     <body>
@@ -43,5 +62,10 @@
         <br>
         Parse: <div id="parseOutput"></div>
         <br>
+        <br>
+        <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
+        <br>
+        File system path:
+        <div id="fileSystemPath"></div>
     </body>
 </html>
