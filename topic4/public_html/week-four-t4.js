@@ -268,3 +268,66 @@ function stripExtensionFromFilename(filename)
     }
     return result;
 }
+
+/**
+ * a single item of label and value
+ * @param {type} label
+ * @param {type} value
+ * @returns {Item}
+ */
+function Item(label, value)
+{
+    this.label = label;
+    this.value = value;
+}
+
+/**
+ * Return array of Lables and Values
+ * @param {type} labelArray
+ * @param {type} valueArray
+ * @returns {LabelsAndValues}
+ */
+function LabelsAndValues(labelArray, valueArray)
+{
+    this.labels = labelArray;
+    
+    this.values = valueArray;
+}
+
+/**
+ * Parse the Label and values from input string
+ * @param {type} input
+ * @returns {undefined}
+ */
+function parseLabelsAndValues(input){
+    var inputArray = input.split(",");
+    var items = [];
+    //check it items array is defined
+    if (inputArray !== undefined)
+    {
+        //for each item string in array
+        for (i=0; i<inputArray.length; i++)
+        {
+            //split each input array item into its parts 
+            //(label and value and create an Item object
+            //set to items array
+            var labelValue = inputArray[i].split(":");
+            var item = new Item(labelValue[0], labelValue[1]);
+            items[i] = item;
+        }
+    }
+    var labelsAndValues = null;
+    if (items.length > 0)
+    {
+        var labels = [];
+        var values = [];
+        for (i=0; i < items.length; i++)
+        {
+            var item = items[i];
+            labels[i] = item.label;
+            values[i] = item.value;
+        }
+        labelsAndValues = new LabelsAndValues(labels, values);
+    }
+    return labelsAndValues;
+}

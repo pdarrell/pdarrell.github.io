@@ -33,6 +33,31 @@
                     }
                     document.getElementById("fileSystemPath").innerHTML = filePath;
                 }
+                
+                const message = "Must run the Get file system parts button, before using this fucntionality.";
+                function boldPartsLabels(input)
+                {
+                    if (input == "")
+                    {
+                        document.getElementById("boldLabels").innerHTML = message;
+                    }else {
+                        var labelsAndValues = parseLabelsAndValues(input);
+                        document.getElementById("boldLabels").innerHTML = labelsAndValues.labels;
+                        document.getElementById("boldLabels").style.fontWeight = "bold";
+                    }
+                }
+                
+                function italizePartsValues(input)
+                {
+                    if (input == "")
+                    {
+                        document.getElementById("italizeValue").innerHTML = message;
+                    }else {
+                        var labelsAndValues = parseLabelsAndValues(input);
+                        document.getElementById("italizeValue").innerHTML = labelsAndValues.values;
+                        document.getElementById("italizeValue").style.fontStyle = "italic";
+                    }
+                }
        </script>
 	   </head>
     <body>
@@ -62,5 +87,11 @@
         <br>
         File system path parts:
         <div id="fileSystemPath"></div>
+        <br>
+        <input type="button" value="Bold Labels of parts" onclick="boldPartsLabels(document.getElementById('fileSystemPath').innerHTML)"/>
+        <div id="boldLabels"></div>
+        <br>
+        <input type="button" value="Italize value of parts" onclick="italizePartsValues(document.getElementById('fileSystemPath').innerHTML)"/>
+        <div id="italizeValue"></div>
     </body>
 </html>
