@@ -105,7 +105,19 @@ function parsePathParts(path)
         this.uncShare = share,
         this.uncPath = path,
         this.extension = extension
+
+        //Method printOutput
+        this.printOutput = function(){
+            if (this.drive !== ""){
+                return "Drive: " + this.drive + ", Directory: " + this.directory + ", Filename: " + this.filename + ", Extension: " + this.extension;
+            } else if (this.uncPath !== "") {
+                return "UNC Path: " + this.uncPath + ", UNC Share: " + this.uncShare + ", Filename: " + this.filename + ", Extension: " + this.extension;
+            } else if (this.directory !== "") {
+                return "Directory: " + this.directory + ", Filename: " + this.filename + ", Extension: " + this.extension;
+            }
+        };
     };
+    
     // define variable to hold fileSystePath object
     var systemPath = null;
     //Create FileSystemPath object and its values
@@ -183,8 +195,6 @@ function parsePathEntities(path, pathEntity)
                 {
                     directory.outputText = result;
                     result = "";
-                }else {
-                    result += path[i];
                 }
             }
             else

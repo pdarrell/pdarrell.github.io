@@ -27,12 +27,9 @@
                 function getFileSystemPath(path){
                     var fileSystemPath = parsePathParts(path);
                     var filePath = "";
-                    if (fileSystemPath !== "undefined"){
-                        if (fileSystemPath.drive !== "") {
-                            filePath = fileSystemPath.drive + fileSystemPath.directory + fileSystemPath.filename + fileSystemPath.extension;
-                        } else {
-                            filePath = fileSystemPath.uncPath + fileSystemPath.uncShare + fileSystemPath.filename + fileSystemPath.extension;
-                        }
+                    if (fileSystemPath !== undefined){
+                        //call method on object to print to display parts
+                        filePath = fileSystemPath.printOutput();
                     }
                     document.getElementById("fileSystemPath").innerHTML = filePath;
                 }
@@ -63,7 +60,7 @@
         <br>
         <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
         <br>
-        File system path:
+        File system path parts:
         <div id="fileSystemPath"></div>
     </body>
 </html>
