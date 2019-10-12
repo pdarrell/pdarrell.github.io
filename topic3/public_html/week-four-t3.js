@@ -71,68 +71,11 @@ function parseJSONObject(jsonString)
 	
 }
 
-/** FileSystePath object
- * 
- * @returns {fileSystemPath.filename|String}
+/**
+ * Parse the parts of path (called from HTML)
+ * @param {type} path
+ * @returns {FileSystemPath|parsePathParts.FileSystemPath}
  */
-function FileSystemPath()
-{
-    var filename;
-    this.filename = function()
-    {
-        return this.filename;
-    };
-    this.filename = function(filename)
-    {
-        this.filename = filename;
-    };
-    var drive;
-    this.drive = fucntion()
-    {
-        return this.drive;
-    };
-    this.drive = function(drive)
-    {
-        this.drive = drive;
-    };
-    var directory;
-    this.directory = fucntion()
-    {
-        return this.directory;
-    };
-    this.directory = function(directory)
-    {
-        this.directory = directory;
-    };
-    var uncShare;
-    this.uncShare = function() 
-    { 
-        return this.uncShare;
-    };
-    this.uncShare = fucntion(share)
-    {
-        this.uncShare = share;
-    };
-    var uncPath;
-    this.uncPath = fucntion()
-    {
-        return this.uncPath;
-    };
-    this.uncPath = function(uncPath)
-    {
-        this.uncPath = uncPath;
-    };
-    var extension;
-    this.extension = fucntion()
-    {
-        return this.extension;
-    };
-    this.extension = fucntion(extension)
-    {
-        this.extension = extension;
-    };
-}
-
 function parsePathParts(path)
 {
     var pathEntity = {
@@ -146,33 +89,36 @@ function parsePathParts(path)
     packageObj =  createPathAndFilenameObject(path);
     
     var filename = Object.create(pathEntity);
-    filename.outputText = packageObj.filename;
+    filename.outputText = stripExtensionFromFilename(packageObj.filename);
     var extension = Object.create(pathEntity);
     extension.delimiter = ".";
-    extension.inputText = filename.outputText;
+    extension.inputText = packageObj.filename;
     extension.outputText = findExtension(extension);
     var pathEntities = parsePathEntities(getPathOnly(path, filename.outputText.length), Object.create(pathEntity));
     
-    //loop through pathEntities array to find valued elements
-    var systemPath = new FileSystemPath();
-    for (i=0; i <= pathEntities.length; i++) {
-        if (pathEntities["drive"] !== "undefined")
-        {
-            systemPath.drive = pathEntities["drive"].outputText;
-        } else if (pathEntities["uncPath"] !== "undefined")
-        {
-            systemPath.uncPath = pathEntities["uncPath"].outputText;
-        } else if (pathEntities["share"] !== "undefined")
-        {
-             systemPath.uncShare = pathEntities["share"].outputText;
-        } else if (pathEntities["directory"] !== "undefined")
-        {
-             systemPath.directory = pathEntities["directory"].outputText;
-        }
-    
+    // Define FileSystemPath object to store and be returned to caller
+    var FileSystemPath = function(filename, drive, dir, path, share, extension)
+    {
+        this.filename = filename,
+        this.drive = drive,
+        this.directory = dir,
+        this.uncShare = share,
+        this.uncPath = path,
+        this.extension = extension
+    };
+    // define variable to hold fileSystePath object
+    var systemPath = null;
+    //Create FileSystemPath object and its values
+    if (pathEntities.drive !== undefined)
+    {
+        systemPath = new FileSystemPath(filename.outputText,pathEntities["drive"].outputText, pathEntities["directory"].outputText,"","",extension.outputText);
+    } else if (pathEntities.uncPath !== undefined)
+    {
+        systemPath = new FileSystemPath(filename.outputText,"", "",pathEntities["uncPath"].outputText,pathEntities["share"].outputText,extension.outputText);
+    } else if (pathEntities.directory !== undefined)
+    {
+        systemPath = new FileSystemPath(filename.outputText,"", pathEntities["directory"].outputText,"","",extension.outputText);
     }
-    systemPath.filename = filename.outputText;
-    systemPath.extension = extension.outputText;
     
     return systemPath;
 }
@@ -200,27 +146,26 @@ function parsePathEntities(path, pathEntity)
             {
                 uncPath = Object.create(pathEntity);
                 uncPath.delimiter = "\\\\";
-                result = uncPath.delimiter;
+                i = 1;
             } else if (path[i] == ":") 
             { //drive
                 drive = Object.create(pathEntity);
                 drive.delimiter = ":";
-                drive.output = result;
+                drive.outputText = result;
                 result = "";
             } else if (path[i] == "\\") 
             { //windows directory or unc path or share
-                //unc path
-                if (uncPath !== null)
-                {
-                    uncPath.outputText = result;
-                    result = "";
-                } else if (uncPath !== null && uncPath.outputText !== "")
+                if (uncPath !== null && uncPath.outputText !== "")
                 { //unc share
                     share = Object.create(pathEntity);
                     share.delimiter = "\\";
                     share.outputText = result;
                     result = "";
-                } else
+                } else if (uncPath !== null)
+                {//unc path
+                    uncPath.outputText = result;
+                    result = "";
+                } else 
                 {
                     directory = Object.create(pathEntity);
                     directory.delimiter = "\\";
@@ -228,8 +173,6 @@ function parsePathEntities(path, pathEntity)
                     {
                         directory.outputText = result;
                         result = "";
-                    }else {
-                        result += path[i];
                     }
                 }
             } else if (path[i] == "/")
@@ -280,14 +223,14 @@ function findExtension(extensionEntity)
     var extension = "";
     if (extensionEntity !== "undefined"){
         var inputText = extensionEntity.inputText;
-        for (i=inputText.length; i >= 0; i--)
+        for (i=(inputText.length - 1); i >= 0; i--)
         {
             if (inputText[i] == extensionEntity.delimiter)
             {
                 break;
             } else 
             {
-                if (extension == "") {
+                if (extension === "") {
                     extension = inputText[i];
                 } else {
                     extension = inputText[i] + extension;
@@ -296,4 +239,22 @@ function findExtension(extensionEntity)
         }
     }
     return extension;
+}
+
+function stripExtensionFromFilename(filename)
+{
+    var result = "";
+    if (filename !== "")
+    {
+        for (i=0;i <= filename.length; i++)
+        {
+            if (filename[i] == ".")
+            {
+                break;
+            } else {
+                result += filename[i];
+            }
+        }
+    }
+    return result;
 }

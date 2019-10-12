@@ -2,9 +2,9 @@
 <html>
     
     <head>
-        <title>JSON Parse, Stringify</title>
+        <title>JavaScript - Objects</title>
         <meta charset="UTF-8">
-       <script src="week-three.js"></script>
+       <script src="week-four-t3.js"></script>
 	   <script>
 			/* getFilename is only called from html and displays the 
 				returned JSON Object from the createFilenameAndPathObject function
@@ -28,12 +28,10 @@
                     var fileSystemPath = parsePathParts(path);
                     var filePath = "";
                     if (fileSystemPath !== "undefined"){
-                        for (i=0; i <= fileSystemPath.length; i++) {
-                            if (filePath == "") {
-                               filePath = fileSystemPath[i];
-                            } else {        
-                                filePath += ";" + fileSystemPath[i];
-                            }
+                        if (fileSystemPath.drive !== "") {
+                            filePath = fileSystemPath.drive + fileSystemPath.directory + fileSystemPath.filename + fileSystemPath.extension;
+                        } else {
+                            filePath = fileSystemPath.uncPath + fileSystemPath.uncShare + fileSystemPath.filename + fileSystemPath.extension;
                         }
                     }
                     document.getElementById("fileSystemPath").innerHTML = filePath;
