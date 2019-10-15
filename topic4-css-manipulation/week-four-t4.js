@@ -321,11 +321,13 @@ function parseLabelsAndValues(input){
     {
         var labels = [];
         var values = [];
-        for (i=0; i < items.length; i++)
+        var i = 0;
+        while (i < items.length)
         {
             var item = items[i];
             labels[i] = item.label;
             values[i] = item.value;
+            i++;
         }
         labelsAndValues = new LabelsAndValues(labels, values);
     }
