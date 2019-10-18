@@ -66,6 +66,7 @@
                 */
                function accessJsonViaAjaxRequest(jsonFile)
                {
+                    //get the current http request path
                     var httpContext = document.URL;
                     var index = httpContext.length;
                     while (index > 0) {
@@ -96,7 +97,30 @@
                         }
                     });
                 }
-               
+                
+                /**
+                * Called from HTML to retrieve json file and parse to object
+                * @param {type} jsonFile
+                * @returns {undefined}
+                */
+               function nytJsonViaAjaxRequest(webservice, releaseDate)
+               {
+                    if(releaseDate == "") {
+                        document.getElementById("nytJsonOutput").innerHTML = "Must enter a date or current into the textbox.";
+                        return;
+                    }
+                    //setup webservice to call
+                    webservice += releaseDate + "/hardcover-fiction.json";
+                    webservice += "?api-key=RBgG8Wx9awVNFKTXVVAKYeKTw7ouJJBp"
+                                        
+                    //Call the ajax parse json process               
+                    ajax_json(webservice, function(data){
+                        if (data !== undefined) {
+                            var jsonString = JSON.stringify(data);
+                            document.getElementById("nytJsonOutput").innerHTML = jsonString;
+                        }
+                    });
+                }
                
        </script>
 	   </head>
@@ -146,6 +170,17 @@
             Object output from JSON file:
             <div id="objectOutput"></div>
             <br>
+            Enter a date for the Best Seller list to retrieve,
+            if current timeframe, enter 'current' without quotes,
+            enter a date in yyyy-MM-dd format.
+            <br>
+            <input id="nytDate" type="text" value=""/>
+            <br>
+            <input type="button" value="New York Times book webservice" onclick="nytJsonViaAjaxRequest('https://api.nytimes.com/svc/books/v3/lists/', document.getElementById('nytDate').value)"/>
+            <br>
+            New York Times book JSON file output:
+            <div id="nytJsonOutput"></div>
+            <br>
          </form>
     </body>
-</html>
+</html> 
