@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>AJAXrequest a JSON file</title>
+        <meta charset="UTF-8">
+       <script src="week-five.js"></script>
+	   <script>
+			/* getFilename is only called from html and displays the 
+				returned JSON Object from the createFilenameAndPathObject function
+				retrieve the filename value from JSON object
+				to the div on the html*/
+            function getFilenameAndPath(path){
+                    var filenamePathObj = createPathAndFilenameObject(path);
+                    var filename = filenamePathObj.filename;
+                    var pkgString = filenameAndPathString(filenamePathObj);
+                    document.getElementById("filenameOutput").innerHTML = filename;
+                    document.getElementById("pathOutput").innerHTML = filenamePathObj.path;
+                    document.getElementById("stringifyOutput").innerHTML = pkgString;
+                    document.getElementById("parseOutput").innerHTML = parseJSONObject(pkgString);
+            }
+            /**
+                 * Parse the file system path and retrieve its parts in an object
+                 * @param {type} path
+                 * @returns {undefined}
+                 */
+                function getFileSystemPath(path){
+                    var fileSystemPath = parsePathParts(path);
+                    var filePath = "";
+                    if (fileSystemPath !== undefined){
+                        //call method on object to print to display parts
+                        filePath = fileSystemPath.printOutput();
+                    }
+                    document.getElementById("fileSystemPath").innerHTML = filePath;
+                }
+                
+                const message = "Must run the Get file system parts button, before using this fucntionality.";
+                function boldPartsLabels(input)
+                {
+                    if (input == "")
+                    {
+                        document.getElementById("boldLabels").innerHTML = message;
+                    }else {
+                        var labelsAndValues = parseLabelsAndValues(input);
+                        document.getElementById("boldLabels").innerHTML = labelsAndValues.labels;
+                        document.getElementById("boldLabels").style.fontWeight = "bold";
+                    }
+                }
+                
+                function italizePartsValues(input)
+                {
+                    if (input == "")
+                    {
+                        document.getElementById("italizeValue").innerHTML = message;
+                    }else {
+                        var labelsAndValues = parseLabelsAndValues(input);
+                        document.getElementById("italizeValue").innerHTML = labelsAndValues.values;
+                        document.getElementById("italizeValue").style.fontStyle = "italic";
+                    }
+                }
+                
+                /**
+                * Called from HTML to retrieve json file and parse to object
+                * @param {type} jsonFile
+                * @returns {undefined}
+                */
+               function accessJsonViaAjaxRequest(jsonFile)
+               {
+                    var httpContext = document.URL;
+                    var index = httpContext.length;
+                    while (index > 0) {
+                        if (httpContext[index] == "/"){
+                            break;
+                        }
+                        index--;
+                    }        
+                    httpContext = httpContext.substr(0, (index + 1));
+                   
+                    ajax_json(httpContext  + jsonFile, function(data){
+                        if (data !== undefined) {
+                            var jsonString = JSON.stringify(data);
+                            document.getElementById("jsonOutput").innerHTML = jsonString;
+                            var group = new Group(data["groupNumber"], data["course"], data["section"]);
+                            group.members = data["members"];
+                            var objElements = "Group: " + ", groupNumber: " + group.groupNumber + ", course: " + group.course + ", section: " + group.section + ", members: "; 
+                            var i = 0; 
+                            while (i < group.members.length) {
+                                if (i == (group.members.length - 1)) {
+                                    objElements += group.members[i].firstName + " " + group.members[i].lastName;
+                                } else {
+                                    objElements += group.members[i].firstName + " " + group.members[i].lastName + ", ";
+                                }
+                                i++;
+                            }   
+                            document.getElementById("objectOutput").innerHTML = objElements;
+                        }
+                    });
+                }
+               
+               
+       </script>
+	   </head>
+    <body>
+        <form id="outputForm">
+            <h2>Find filename</h2>
+            <br> 
+            Enter a path and filename delimited by either a Windows (\) or Unix (/) delimiter.<br>
+            Click the Find filename button.<br>
+            The filename with its extension is displayed below the button.<br>
+            The path is display under the filename.<br>
+            And the whole object contents are displayed under path.<br>
+            <br>
+            Click on the Parse JSON File with Ajax button to get contents of a json file <br>
+            and display the stringify representation and the object contents of the file.
+                    <br>
+            Enter path and filename:
+            <input id="input" type="text" value=""/>
+            <br>
+            <input type="button" value="Find filename and Path" onclick="getFilenameAndPath(document.getElementById('input').value)"/>
+            <br>
+            Filename: <div id="filenameOutput"></div>
+            <br>
+            Path: <div id="pathOutput"></div>
+            <br>
+            Stringify: <div id="stringifyOutput"></div>
+            <br>
+            Parse: <div id="parseOutput"></div>
+            <br>
+            <br>
+            <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
+            <br>
+            File system path parts:
+            <div id="fileSystemPath"></div>
+            <br>
+            <input type="button" value="Bold Labels of parts" onclick="boldPartsLabels(document.getElementById('fileSystemPath').innerHTML)"/>
+            <div id="boldLabels"></div>
+            <br>
+            <input type="button" value="Italize value of parts" onclick="italizePartsValues(document.getElementById('fileSystemPath').innerHTML)"/>
+            <div id="italizeValue"></div>
+            <br>
+            <input type="button" value="Parse JSON File with Ajax" onclick="accessJsonViaAjaxRequest('group.json')"/>
+            <br>
+            JSON file output:
+            <div id="jsonOutput"></div>
+            <br>
+            Object output from JSON file:
+            <div id="objectOutput"></div>
+            <br>
+         </form>
+    </body>
+</html>
