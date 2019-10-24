@@ -2,10 +2,11 @@
 <html>
     
     <head>
-        <title>AJAXrequest a JSON file</title>
+        <title>LocalStorage</title>
         <meta charset="UTF-8">
-       <script src="week-six.js"></script>
+       <script src="week-six-t6.js"></script>
 	   <script>
+               var nytBooks;
 			/* getFilename is only called from html and displays the 
 				returned JSON Object from the createFilenameAndPathObject function
 				retrieve the filename value from JSON object
@@ -129,10 +130,50 @@
                                     i++;
                                 } while (books.length > i);
                             }
+                            nytBooks = books;
                         }
                     });
                 }
                
+                /**
+                 * StoreNYTBooks use localStorage to store the NYT books
+                 */
+                function storeNYTBooks()
+                {
+                    if (nytBooks == undefined)
+                    {
+                        document.getElementById("nytBooksOutput").innerHTML = "You must run the New York Times webservice first."
+                    }
+                    
+                    //process nytBooks and store in LocalStorage
+                    var localStorage = window.localStorage;
+                    //clear out localStorage
+                    localStorage.clear();
+                    //store an array of Book objects
+                    localStorage.setItem("NYTBooks", nytBooks);
+                    processNYTBooks(nytBooks);
+                    
+                    document.getElementById("nytBooksOutput").innerHTML = "LocalStorage count start as: " + localStorage.length + "<br>";
+                    
+                    //display NYTBooks localStorage
+                    document.getElementById("nytBooksOutput").innerHTML += "NYTBooks:<br>" + localStorage.getItem("NYTBooks") + "<BR><HR><BR>";
+                    
+                    // process individual book object in lcoalStoage
+                    if (localStorage.length > 0)
+                    {
+                        var i=0;
+                        do{
+                            document.getElementById("nytBooksOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
+                            //remove each book
+                            localStorage.removeItem("Book"+i);
+                            i++;
+                        } while (localStorage.length > 1);
+                        //remove NYTBooks array
+                        localStorage.removeItem("NYTBooks");
+                        //document that lcoalStorage is empty
+                        document.getElementById("nytBooksOutput").innerHTML += "LocalStorage count ends as: " + localStorage.length + "<br>";
+                    }
+                }
        </script>
 	   </head>
     <body>
@@ -198,8 +239,14 @@
             <hr>
             <br>
             New York Times book JSON file output:
-            <div id="nytJsonOutput"></div>           
+            <div id="nytJsonOutput"></div>  
+            <hr>
             <br>
+            LocalStorage of New York Times books
+            <br>
+            <input type="button" value="LocalStorage" onclick="storeNYTBooks()"/>
+            <br>
+            <div id="nytBooksOutput"></div>  
          </form>
     </body>
 </html> 

@@ -403,6 +403,11 @@ function Book(title, author, ISDN, review)
     this.description = "";
 }
 
+/**
+ * Process JSON object to Books array of Book object
+ * @param {type} jsonObj
+ * @returns {Array}
+ */
 function processJSONObjToBooks(jsonObj)
 {
     var books = [];
@@ -418,4 +423,20 @@ function processJSONObjToBooks(jsonObj)
         } while (jsonBooks.length > i)
     }
     return books;
+}
+
+/**
+ * 
+ */
+function processNYTBooks(nytBooks)
+{
+    var i = 0;
+    if (nytBooks.length > 0)
+    {
+        var localStorage = window.localStorage;
+        do {
+            localStorage.setItem("Book" + i, nytBooks[i]);
+            i++;
+        } while (nytBooks.length > i);
+    }
 }
