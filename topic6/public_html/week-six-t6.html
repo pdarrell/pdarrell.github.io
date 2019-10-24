@@ -124,6 +124,7 @@
                             
                             var books = processJSONObjToBooks(data);
                             if (books !== undefined && books.length !== 0){
+                                document.getElementById("booksOutput").innerHTML = "";
                                 var i = 0;
                                 do {
                                     document.getElementById("booksOutput").innerHTML += books[i].toString() + "<br>";
@@ -131,6 +132,7 @@
                                 } while (books.length > i);
                             }
                             nytBooks = books;
+                            data=null;
                         }
                     });
                 }
