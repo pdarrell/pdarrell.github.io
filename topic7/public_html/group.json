@@ -1,0 +1,23 @@
+{
+    "groupNumber" : "2",
+    "course" : "CIT 262",
+    "section" : "03",
+    "members" : [
+        {
+            "firstName" : "Purnell",
+            "lastName" : "Darrell"
+        },
+        {
+            "firstName" : "Gavin",
+            "lastName" : "Olsen"
+        },
+        {
+            "firstName" : "David",
+            "lastName" : "Tabi"
+        },
+        {
+            "firstName" : "Lucas",
+            "lastName" : "Bittencourt"
+        }
+    ]
+}
