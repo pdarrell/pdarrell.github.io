@@ -4,6 +4,11 @@ function displayDiv(divId, idDisplay, idHide)
 {
     var element = document.getElementById(divId);
     element.classList.remove("hide");
+    element.classList.remove("removeBorder");
+    element.classList.add("addBorder");
+    element.classList.remove("shrink");
+    element.addEventListener("click", function() {element.style.transform = "grow"});
+    element.classList.add("grow");
     element.classList.add("display");
     var hideElement = document.getElementById(idHide);
     hideElement.classList.remove("hide");
@@ -17,6 +22,11 @@ function hideDiv(divId, idHide, idDisplay)
 {
     var element = document.getElementById(divId);
     element.classList.remove("display");
+    element.classList.remove("addBorder");
+    element.classList.add("removeBorder");
+    element.classList.remove("grow");
+    element.addEventListener("click", function() {element.style.transform = "shrink"});
+    element.classList.add("shrink");
     element.classList.add("hide");
     var displayElement = document.getElementById(idHide);
     displayElement.classList.remove("display");

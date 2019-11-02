@@ -17,3 +17,34 @@
 .hide {
     display: none;
 }
+
+.grow
+{
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+    transition: transform 5s;
+}
+
+.shrink
+{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: transform 5s;
+}
+
+.addBorder
+{
+   width:100%;
+   display:inline-block;
+   border-width:2px;
+   border-style:solid;
+   border-color:black;
+   margin:0;
+}
+
+.removeBorder
+{
+    border-style : none;
+}
