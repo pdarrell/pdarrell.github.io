@@ -4,7 +4,9 @@
     <head>
         <title>DOM Manipulation</title>
         <meta charset="UTF-8">
-       <script src="week-six-t7.js"></script>
+        <link rel="stylesheet" href="cssstyle.css">
+        <script src="ui.js"></script>
+       <script src="week-seven.js"></script>
 	   <script>
                var nytBooks;
 			/* getFilename is only called from html and displays the 
@@ -176,94 +178,145 @@
                         document.getElementById("nytBooksOutput").innerHTML += "LocalStorage count ends as: " + localStorage.length + "<br>";
                     }
                 }
+                /**
+                 * Set the div text to bold using CSS file class
+                 * @param {type} divElement
+                 * @returns {undefined}
+                 */
+                function boldDivTextCSS(divElement)
+                {
+                       divElement.classList.remove("italic");
+                       divElement.classList.add("bold");
+                }
+                /**
+                 * Set the div text to italic using CSS file class
+                 * @param {type} divElement
+                 * @returns {undefined}
+                 */
+                function italicDivTextCSS(divElement)
+                {
+                    divElement.classList.remove("bold");
+                    divElement.classList.add("italic");
+                }
        </script>
 	   </head>
     <body>
         <form id="outputForm">
-            <h2>Find filename</h2>
-            <br> 
-            Enter a path and filename delimited by either a Windows (\) or Unix (/) delimiter.<br>
-            Click the Find filename button.<br>
-            The filename with its extension is displayed below the button.<br>
-            The path is display under the filename.<br>
-            And the whole object contents are displayed under path.<br>
-            <br>
-            Click on the Parse JSON File with Ajax button to get contents of a json file <br>
-            and display the stringify representation and the object contents of the file.
-                    <br>
-            Enter path and filename:
-            <input id="input" type="text" value=""/>
-            <br>
-            <input type="button" value="Find filename and Path" onclick="getFilenameAndPath(document.getElementById('input').value)"/>
-            <br>
-            Filename: <div id="filenameOutput"></div>
-            <br>
-            Path: <div id="pathOutput"></div>
-            <br>
-            Stringify: <div id="stringifyOutput"></div>
-            <br>
-            Parse: <div id="parseOutput"></div>
+            <div id="filenameDiv" class="hide">
+                <h2>Find filename</h2>
+                <br> 
+                Enter a path and filename delimited by either a Windows (\) or Unix (/) delimiter.<br>
+                Click the Find filename button.<br>
+                The filename with its extension is displayed below the button.<br>
+                The path is display under the filename.<br>
+                And the whole object contents are displayed under path.<br>
+                <br>
+                Enter path and filename:
+                <input id="input" type="text" value=""/>
+                <br>
+                <input type="button" value="Find filename and Path" onclick="getFilenameAndPath(document.getElementById('input').value)"/>
+                <br>
+                Filename: <div id="filenameOutput"></div>
+                <br>
+                Path: <div id="pathOutput"></div>
+                <br>
+                Stringify: <div id="stringifyOutput"></div>
+                <br>
+                Parse: <div id="parseOutput"></div>
+                <hr>
+                <br>
+                <br>
+                <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
+                <br>
+                File system path parts:
+                <div id="fileSystemPath"></div>
+                <hr>
+                <br>
+                <input type="button" value="Bold Labels of parts" onclick="boldPartsLabels(document.getElementById('fileSystemPath').innerHTML)"/>
+                <div id="boldLabels"></div>
+                <br>
+                <input type="button" value="Italize value of parts" onclick="italizePartsValues(document.getElementById('fileSystemPath').innerHTML)"/>
+                <div id="italizeValue"></div>
+                <hr>
+                <br>
+            </div>
+            <div id="displayHideFilename">
+                <input id="displayFilename" type="button" class="display" value="Display filename and CSS" onclick="displayDiv('filenameDiv', 'displayFilename', 'hideFilename')"/>
+                <input id="hideFilename" type="button" class="hide" value="Hide filename and CSS" onclick="hideDiv('filenameDiv', 'hideFilename', 'displayFilename')"/>
+            </div>
             <hr>
-            <br>
-            <br>
-            <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
-            <br>
-            File system path parts:
-            <div id="fileSystemPath"></div>
+            <div id="jsonDiv" class="hide">
+                <input type="button" value="Parse JSON File with Ajax" onclick="accessJsonViaAjaxRequest('group.json')"/>
+                <br>
+                Click on the Parse JSON File with Ajax button to get contents of a json file <br>
+                and display the stringify representation and the object contents of the file.
+                <br>
+                JSON file output:
+                <div id="jsonOutput"></div>
+                <br>
+                Object output from JSON file:
+                <div id="objectOutput"></div>
+                <hr>
+                <br>
+            </div>
+            <div id="displayHideJSON">
+                <input id="displayJSON" type="button" class="display" value="Display JSON" onclick="displayDiv('jsonDiv', 'displayJSON', 'hideJSON')"/>
+                <input id="hideJSON" type="button" class="hide" value="Hide JSON" onclick="hideDiv('jsonDiv', 'hideJSON', 'displayJSON')"/>
+            </div>
             <hr>
-            <br>
-            <input type="button" value="Bold Labels of parts" onclick="boldPartsLabels(document.getElementById('fileSystemPath').innerHTML)"/>
-            <div id="boldLabels"></div>
-            <br>
-            <input type="button" value="Italize value of parts" onclick="italizePartsValues(document.getElementById('fileSystemPath').innerHTML)"/>
-            <div id="italizeValue"></div>
+            <div id="webserviceDiv" class="hide">
+                Enter a date for the Best Seller list to retrieve,
+                if current timeframe, enter 'current' without quotes,
+                enter a date in yyyy-MM-dd format.
+                <br>
+                <input id="nytDate" type="text" value=""/>
+                <br>
+                <input type="button" value="New York Times book webservice" onclick="nytJsonViaAjaxRequest('https://api.nytimes.com/svc/books/v3/lists/', document.getElementById('nytDate').value)"/>
+                <br>
+                New York Times Books object array:
+                <div id="booksOutput"></div>
+                <hr>
+                <br>
+                New York Times book JSON file output:
+                <div id="nytJsonOutput"></div>  
+                <hr>
+                <br>
+                LocalStorage of New York Times books
+                <br>
+                <input type="button" value="LocalStorage" onclick="storeNYTBooks()"/>
+                <br>
+                <div id="nytBooksOutput"></div>  
+                <hr>
+                <br>
+            </div>
+            <div id="displayHideWebservice">
+                <input id="displayWebservice" type="button" class="display" value="Display webservices and localStorage" onclick="displayDiv('webserviceDiv', 'displayWebservice', 'hideWebservice')"/>
+                <input id="hideWebservice" type="button" class="hide" value="Hide webservices and localStorage" onclick="hideDiv('webserviceDiv', 'hideWebservice', 'displayWebservice')"/>
+            </div>
             <hr>
-            <br>
-            <input type="button" value="Parse JSON File with Ajax" onclick="accessJsonViaAjaxRequest('group.json')"/>
-            <br>
-            JSON file output:
-            <div id="jsonOutput"></div>
-            <br>
-            Object output from JSON file:
-            <div id="objectOutput"></div>
-            <hr>
-            <br>
-            Enter a date for the Best Seller list to retrieve,
-            if current timeframe, enter 'current' without quotes,
-            enter a date in yyyy-MM-dd format.
-            <br>
-            <input id="nytDate" type="text" value=""/>
-            <br>
-            <input type="button" value="New York Times book webservice" onclick="nytJsonViaAjaxRequest('https://api.nytimes.com/svc/books/v3/lists/', document.getElementById('nytDate').value)"/>
-            <br>
-            New York Times Books object array:
-            <div id="booksOutput"></div>
-            <hr>
-            <br>
-            New York Times book JSON file output:
-            <div id="nytJsonOutput"></div>  
-            <hr>
-            <br>
-            LocalStorage of New York Times books
-            <br>
-            <input type="button" value="LocalStorage" onclick="storeNYTBooks()"/>
-            <br>
-            <div id="nytBooksOutput"></div>  
-            <hr>
-            <br>
-            DOM Manipulation
-            Enter the id of the div you want to add.
-            <br>
-            <input id="divId" type="text" value=""/>
-            <br>
-            <input type="button" value="Add div" onclick="addDivElement(document.getElementById('divId').value)"/>
-            <br>
-            Enter text to display in div.
-            <br>
-            <input id="divText" type="text" value=""/>
-            <br>
-            <input type="button" value="Add text to div" onclick="addTextToDiv(document.getElementById('divId').value, document.getElementById('divText').value)"/>
-            <input type="button" value="Remove div" onclick="removeDiv(document.getElementById('divId').value)"/>
+            <div id="domDiv" class="display">
+                DOM Manipulation
+                Enter the id of the div you want to add.
+                <br>
+                <input id="divId" type="text" value=""/>
+                <br>
+                <input type="button" value="Add div" onclick="addDivElement(document.getElementById('divId').value, document.getElementById('displayHideDOM'))"/>
+                <br>
+                Enter text to display in div.
+                <br>
+                <input id="divText" type="text" value=""/>
+                <br>
+                <input type="button" value="Add text to div" onclick="addTextToDiv(document.getElementById('divId').value, document.getElementById('divText').value)"/>
+                <input id="removeDivButton" type="button" value="Remove div" onclick="removeDiv(document.getElementById('divId').value)"/>
+                <BR>
+                CSS class change div text above.  Must run the DOM Manipulation first.
+                <input type="button" value="Bold div text" onclick="boldDivTextCSS(document.getElementById(document.getElementById('divId').value))"/>
+                <input type="button" value="Italize div text" onclick="italicDivTextCSS(document.getElementById(document.getElementById('divId').value))"/>
+            </div>
+            <div id="displayHideDOM">
+                <input id="domHideButton" class="display" type="button" value="Hide DOM and CSS file" onclick="hideDiv('domDiv', 'domHideButton', 'domDisplayButton')"/>
+                <input id="domDisplayButton" class="hide" type="button" value="Display DOM and CSS file" onclick="displayDiv('domDiv', 'domDisplayButton', 'domHideButton')"/>
+            </div>
          </form>
     </body>
 </html> 

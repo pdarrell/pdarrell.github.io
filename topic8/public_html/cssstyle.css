@@ -1,0 +1,19 @@
+
+.bold {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.display {
+   display: block; 
+}
+
+
+.hide {
+    display: none;
+}
