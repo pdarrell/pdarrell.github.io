@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>DOM Manipulation</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="cssstyle.css">
+        <script src="ui.js"></script>
+       <script src="week-nine-t5.js"></script>
+	   <script>
+               var nytBooks;
+			/* getFilename is only called from html and displays the 
+				returned JSON Object from the createFilenameAndPathObject function
+				retrieve the filename value from JSON object
+				to the div on the html*/
+            function getFilenameAndPath(path){
+                    var filenamePathObj = createPathAndFilenameObject(path);
+                    var filename = filenamePathObj.filename;
+                    var pkgString = filenameAndPathString(filenamePathObj);
+                    document.getElementById("filenameOutput").innerHTML = filename;
+                    document.getElementById("pathOutput").innerHTML = filenamePathObj.path;
+                    document.getElementById("stringifyOutput").innerHTML = pkgString;
+                    document.getElementById("parseOutput").innerHTML = parseJSONObject(pkgString);
+            }
+            /**
+                 * Parse the file system path and retrieve its parts in an object
+                 * @param {type} path
+                 * @returns {undefined}
+                 */
+                function getFileSystemPath(path){
+                    var fileSystemPath = parsePathParts(path);
+                    var filePath = "";
+                    if (fileSystemPath !== undefined){
+                        //call method on object to print to display parts
+                        filePath = fileSystemPath.printOutput();
+                    }
+                    document.getElementById("fileSystemPath").innerHTML = filePath;
+                }
+                
+                const message = "Must run the Get file system parts button, before using this fucntionality.";
+                function boldPartsLabels(input)
+                {
+                    if (input == "")
+                    {
+                        document.getElementById("boldLabels").innerHTML = message;
+                    }else {
+                        var labelsAndValues = parseLabelsAndValues(input);
+                        document.getElementById("boldLabels").innerHTML = labelsAndValues.labels;
+                        document.getElementById("boldLabels").style.fontWeight = "bold";
+                    }
+                }
+                
+                function italizePartsValues(input)
+                {
+                    if (input == "")
+                    {
+                        document.getElementById("italizeValue").innerHTML = message;
+                    }else {
+                        var labelsAndValues = parseLabelsAndValues(input);
+                        document.getElementById("italizeValue").innerHTML = labelsAndValues.values;
+                        document.getElementById("italizeValue").style.fontStyle = "italic";
+                    }
+                }
+                
+                /**
+                * Called from HTML to retrieve json file and parse to object
+                * @param {type} jsonFile
+                * @returns {undefined}
+                */
+               function accessJsonViaAjaxRequest(jsonFile)
+               {
+                    //get the current http request path
+                    var httpContext = document.URL;
+                    var index = httpContext.length;
+                    while (index > 0) {
+                        if (httpContext[index] == "/"){
+                            break;
+                        }
+                        index--;
+                    }        
+                    httpContext = httpContext.substr(0, (index + 1));
+                   
+                    ajax_json(httpContext  + jsonFile, function(data){
+                        if (data !== undefined) {
+                            var jsonString = JSON.stringify(data);
+                            document.getElementById("jsonOutput").innerHTML = jsonString;
+                            var group = new Group(data["groupNumber"], data["course"], data["section"]);
+                            group.members = data["members"];
+                            var objElements = "Group: " + ", groupNumber: " + group.groupNumber + ", course: " + group.course + ", section: " + group.section + ", members: "; 
+                            var i = 0; 
+                            while (i < group.members.length) {
+                                if (i == (group.members.length - 1)) {
+                                    objElements += group.members[i].firstName + " " + group.members[i].lastName;
+                                } else {
+                                    objElements += group.members[i].firstName + " " + group.members[i].lastName + ", ";
+                                }
+                                i++;
+                            }   
+                            document.getElementById("objectOutput").innerHTML = objElements;
+                        }
+                    });
+                }
+                
+                /**
+                * Called from HTML to retrieve json file and parse to object
+                * @param {type} jsonFile
+                * @returns {undefined}
+                */
+               function nytJsonViaAjaxRequest(webservice, releaseDate)
+               {
+                    if(releaseDate == "") {
+                        document.getElementById("nytJsonOutput").innerHTML = "Must enter a date or current into the textbox.";
+                        return;
+                    }
+                    //setup webservice to call
+                    webservice += releaseDate + "/hardcover-fiction.json";
+                    webservice += "?api-key=RBgG8Wx9awVNFKTXVVAKYeKTw7ouJJBp"
+                                        
+                    //Call the ajax parse json process               
+                    ajax_json(webservice, function(data){
+                        if (data !== undefined) {
+                            //stringify the webservice object results 
+                            // and display string results
+                            var jsonString = JSON.stringify(data);
+                            document.getElementById("nytJsonOutput").innerHTML = jsonString;
+                            
+                            var books = processJSONObjToBooks(data);
+                            if (books !== undefined && books.length !== 0){
+                                document.getElementById("booksOutput").innerHTML = "";
+                                var i = 0;
+                                do {
+                                    document.getElementById("booksOutput").innerHTML += books[i].toString() + "<br>";
+                                    i++;
+                                } while (books.length > i);
+                            }
+                            nytBooks = books;
+                            data=null;
+                        }
+                    });
+                }
+               
+                /**
+                 * StoreNYTBooks use localStorage to store the NYT books
+                 */
+                function storeNYTBooks()
+                {
+                    if (nytBooks == undefined)
+                    {
+                        document.getElementById("nytBooksOutput").innerHTML = "You must run the New York Times webservice first."
+                    }
+                    
+                    //process nytBooks and store in LocalStorage
+                    var localStorage = window.localStorage;
+                    //store an array of Book objects
+                    localStorage.setItem("NYTBooks", nytBooks);
+                    processNYTBooks(nytBooks);
+                    
+                    document.getElementById("nytBooksOutput").innerHTML = "LocalStorage count start as: " + localStorage.length + "<br>";
+                    
+                    //display NYTBooks localStorage
+                    document.getElementById("nytBooksOutput").innerHTML += "NYTBooks:<br>" + localStorage.getItem("NYTBooks") + "<BR><HR><BR>";
+                    
+                    // process individual book object in lcoalStoage
+                    if (localStorage.length > 0)
+                    {
+                        for(i=0;i < localStorage.length; i++){
+                            document.getElementById("nytBooksOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
+                        }
+                        //document that localStorage is not empty
+                        document.getElementById("nytBooksOutput").innerHTML += "LocalStorage count ends as: " + localStorage.length + "<br>";
+                    }
+                }
+                /**
+                 * Set the div text to bold using CSS file class
+                 * @param {type} divElement
+                 * @returns {undefined}
+                 */
+                function boldDivTextCSS(divElement)
+                {
+                       divElement.classList.remove("italic");
+                       divElement.classList.add("bold");
+                }
+                /**
+                 * Set the div text to italic using CSS file class
+                 * @param {type} divElement
+                 * @returns {undefined}
+                 */
+                function italicDivTextCSS(divElement)
+                {
+                    divElement.classList.remove("bold");
+                    divElement.classList.add("italic");
+                }
+                
+                /**
+                 * Display the message for information of topic
+                 * @returns {undefined}
+                 */
+                function displayLoadMessage()
+                {
+                    var msg = "This weeks Topic 5 code will show LocalStorage rework. <br>";
+                    msg += "(This is an onload event triggered message.)";
+                    document.getElementById("msgDiv").innerHTML = msg;
+                }
+                
+                function retrieveLocalStorage()
+                {
+                    var localStorage = window.localStorage;
+                    document.getElementById("localStorageOutput").innerHTML = "";
+                    document.getElementById("nytBooksOutput").innerHTML = "LocalStorage count: " + localStorage.length + "<br>";
+                    
+                    if (localStorage.length > 0)
+                    {
+                        for(i=0;i < localStorage.length; i++){
+                            document.getElementById("localStorageOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
+                        }
+                    }
+                }
+       </script>
+	   </head>
+    <body onload="displayLoadMessage();">
+        <form id="outputForm">
+            <div id="msgDiv"></div>
+            <br>
+            <div id="filenameDiv" class="hide">
+                <h2>Find filename</h2>
+                <br> 
+                Enter a path and filename delimited by either a Windows (\) or Unix (/) delimiter.<br>
+                Click the Find filename button.<br>
+                The filename with its extension is displayed below the button.<br>
+                The path is display under the filename.<br>
+                And the whole object contents are displayed under path.<br>
+                <br>
+                Enter path and filename:
+                <input id="input" type="text" value=""/>
+                <br>
+                <input type="button" value="Find filename and Path" onclick="getFilenameAndPath(document.getElementById('input').value)"/>
+                <br>
+                Filename: <div id="filenameOutput"></div>
+                <br>
+                Path: <div id="pathOutput"></div>
+                <br>
+                Stringify: <div id="stringifyOutput"></div>
+                <br>
+                Parse: <div id="parseOutput"></div>
+                <hr>
+                <br>
+                <br>
+                <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
+                <br>
+                File system path parts:
+                <div id="fileSystemPath"></div>
+                <hr>
+                <br>
+                <input type="button" value="Bold Labels of parts" onclick="boldPartsLabels(document.getElementById('fileSystemPath').innerHTML)"/>
+                <div id="boldLabels"></div>
+                <br>
+                <input type="button" value="Italize value of parts" onclick="italizePartsValues(document.getElementById('fileSystemPath').innerHTML)"/>
+                <div id="italizeValue"></div>
+                <hr>
+                <br>
+            </div>
+            <div id="displayHideFilename">
+                <input id="displayFilename" type="button" class="display" value="Display filename and CSS" onclick="displayDiv('filenameDiv', 'displayFilename', 'hideFilename')"/>
+                <input id="hideFilename" type="button" class="hide" value="Hide filename and CSS" onclick="hideDiv('filenameDiv', 'hideFilename', 'displayFilename')"/>
+            </div>
+            <hr>
+            <hr>
+            <div id="jsonDiv" class="hide">
+                <input type="button" value="Parse JSON File with Ajax" onclick="accessJsonViaAjaxRequest('group.json')"/>
+                <br>
+                Click on the Parse JSON File with Ajax button to get contents of a json file <br>
+                and display the stringify representation and the object contents of the file.
+                <br>
+                JSON file output:
+                <div id="jsonOutput"></div>
+                <br>
+                Object output from JSON file:
+                <div id="objectOutput"></div>
+                <hr>
+                <br>
+            </div>
+            <div id="displayHideJSON">
+                <input id="displayJSON" type="button" class="display" value="Display JSON" onclick="displayDiv('jsonDiv', 'displayJSON', 'hideJSON')"/>
+                <input id="hideJSON" type="button" class="hide" value="Hide JSON" onclick="hideDiv('jsonDiv', 'hideJSON', 'displayJSON')"/>
+            </div>
+            <hr>
+            <hr>
+            <div id="webserviceDiv" class="display addBorder">
+                Enter a date for the Best Seller list to retrieve,
+                if current timeframe, enter 'current' without quotes,
+                enter a date in yyyy-MM-dd format.
+                <br>
+                <input id="nytDate" type="text" value=""/>
+                <br>
+                <input type="button" value="New York Times book webservice" onclick="nytJsonViaAjaxRequest('https://api.nytimes.com/svc/books/v3/lists/', document.getElementById('nytDate').value)"/>
+                <br>
+                New York Times Books object array:
+                <div id="booksOutput"></div>
+                <hr>
+                <br>
+                New York Times book JSON file output:
+                <div id="nytJsonOutput"></div>  
+                <hr>
+                <br>
+                LocalStorage of New York Times books
+                <br>
+                <input type="button" value="LocalStorage" onclick="storeNYTBooks()"/>
+                <br>
+                <div id="nytBooksOutput"></div>  
+                <br>
+                <input type="button" value="Retrieve LocalStorage data" onclick="retrieveLocalStorage()"/>
+                <br>
+                <div id="localStorageOutput"></div>
+                <hr>
+                <br>
+            </div>
+            <div id="displayHideWebservice">
+                <input id="displayWebservice" type="button" class="display" value="Display webservices and localStorage" onclick="displayDiv('webserviceDiv', 'displayWebservice', 'hideWebservice')"/>
+                <input id="hideWebservice" type="button" class="hide" value="Hide webservices and localStorage" onclick="hideDiv('webserviceDiv', 'hideWebservice', 'displayWebservice')"/>
+            </div>
+            <hr>
+            <hr>
+            <div id="domDiv" class="hide removeBorder">
+                DOM Manipulation
+                Enter the id of the div you want to add.
+                <br>
+                <input id="divId" type="text" value=""/>
+                <br>
+                <input type="button" value="Add div" onclick="addDivElement(document.getElementById('divId').value, document.getElementById('displayHideDOM'))"/>
+                <br>
+                Enter text to display in div.
+                <br>
+                <input id="divText" type="text" value=""/>
+                <br>
+                <input type="button" value="Add text to div" onclick="addTextToDiv(document.getElementById('divId').value, document.getElementById('divText').value)"/>
+                <input id="removeDivButton" type="button" value="Remove div" onclick="removeDiv(document.getElementById('divId').value)"/>
+                <BR>
+                CSS class change div text in div created.  Must run the DOM Manipulation first.
+                <input type="button" value="Bold div text" onclick="boldDivTextCSS(document.getElementById(document.getElementById('divId').value))"/>
+                <input type="button" value="Italize div text" onclick="italicDivTextCSS(document.getElementById(document.getElementById('divId').value))"/>
+            </div>
+            <div id="displayHideDOM">
+                <input id="domHideButton" class="hide" type="button" value="Hide DOM and CSS file" onclick="hideDiv('domDiv', 'domHideButton', 'domDisplayButton')"/>
+                <input id="domDisplayButton" class="display" type="button" value="Display DOM and CSS file" onclick="displayDiv('domDiv', 'domDisplayButton', 'domHideButton')"/>
+            </div>
+            <hr>
+            <hr>
+            <div id="eventsDiv" class="hide removeBorder">
+                JavaScript Events
+                Enter a color name and move off of textbox, and watch the text change to that color.
+                <br>
+                <input id="colorInput" type="text" value="" onblur="changeColor(this, this.value)"/>
+                <br>
+                
+            </div>
+            <div id="displayHideEvents">
+                <input id="eventsHideButton" class="display" type="button" value="Hide JavaScript Events" onclick="hideDiv('eventsDiv', 'eventsHideButton', 'eventsDisplayButton')"/>
+                <input id="eventsDisplayButton" class="hide" type="button" value="Display JavaScript Events" onclick="displayDiv('eventsDiv', 'eventsDisplayButton', 'eventsHideButton')"/>
+            </div>
+         </form>
+    </body>
+</html> 
