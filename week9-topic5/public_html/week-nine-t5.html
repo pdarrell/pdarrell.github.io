@@ -206,15 +206,16 @@
                 {
                     var localStorage = window.localStorage;
                     
-                    if (localStorage.length == 0)
+                    if (localStorage.length === 0)
                     {
                         document.getElementById("localStorageOutput").innerHTML = "Must run the webservices and LocalStorage buttons first, at least once."
                     }
                     
-                    document.getElementById("localStorageOutput").innerHTML = "LocalStorage count: " + localStorage.length + "<br>";
-                    
                     if (localStorage.length > 0)
                     {
+                        //display localStorage count
+                        document.getElementById("localStorageOutput").innerHTML = "LocalStorage count: " + localStorage.length + "<br>";
+                        //loop thru localStorage for books
                         for(i=0;i <= (localStorage.length - 2); i++){
                             document.getElementById("localStorageOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
                         }
