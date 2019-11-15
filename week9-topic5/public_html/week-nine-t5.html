@@ -163,7 +163,7 @@
                     // process individual book object in lcoalStoage
                     if (localStorage.length > 0)
                     {
-                        for(i=0;i < localStorage.length; i++){
+                        for(i=0;i < (localStorage.length -1); i++){
                             document.getElementById("nytBooksOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
                         }
                         //document that localStorage is not empty
@@ -210,7 +210,7 @@
                     
                     if (localStorage.length > 0)
                     {
-                        for(i=0;i < localStorage.length; i++){
+                        for(i=0;i < (localStorage.length -1); i++){
                             document.getElementById("localStorageOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
                         }
                     }
