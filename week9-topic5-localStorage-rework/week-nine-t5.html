@@ -202,6 +202,10 @@
                     document.getElementById("msgDiv").innerHTML = msg;
                 }
                 
+                /**
+                 * Retrieve the data in localStorage
+                 * @returns {undefined}
+                 */
                 function retrieveLocalStorage()
                 {
                     var localStorage = window.localStorage;
@@ -220,6 +224,15 @@
                             document.getElementById("localStorageOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
                         }
                     }
+                }
+                
+                /**
+                 * Remove data from localStorage
+                 * @returns {undefined}
+                 */
+                function clearLocalStorage()
+                {
+                    window.localStorage.clear();
                 }
        </script>
 	   </head>
@@ -315,6 +328,7 @@
                 <div id="nytBooksOutput"></div>  
                 <br>
                 <input type="button" value="Retrieve LocalStorage data" onclick="retrieveLocalStorage()"/>
+                <input type="button" value="Clear LocalStorage data" onclick="clearLocalStorage()"/>
                 <br>
                 <div id="localStorageOutput"></div>
                 <hr>
