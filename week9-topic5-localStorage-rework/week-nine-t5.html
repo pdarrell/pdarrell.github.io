@@ -163,7 +163,7 @@
                     // process individual book object in lcoalStoage
                     if (localStorage.length > 0)
                     {
-                        for(i=0;i < localStorage.length; i++){
+                        for(i=0;i <= (localStorage.length -2); i++){
                             document.getElementById("nytBooksOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
                         }
                         //document that localStorage is not empty
@@ -205,12 +205,17 @@
                 function retrieveLocalStorage()
                 {
                     var localStorage = window.localStorage;
-                    document.getElementById("localStorageOutput").innerHTML = "";
-                    document.getElementById("nytBooksOutput").innerHTML = "LocalStorage count: " + localStorage.length + "<br>";
+                    
+                    if (localStorage.length == 0)
+                    {
+                        document.getElementById("localStorageOutput").innerHTML = "Must run the webservices and LocalStorage buttons first, at least once."
+                    }
+                    
+                    document.getElementById("localStorageOutput").innerHTML = "LocalStorage count: " + localStorage.length + "<br>";
                     
                     if (localStorage.length > 0)
                     {
-                        for(i=0;i < localStorage.length; i++){
+                        for(i=0;i <= (localStorage.length -2); i++){
                             document.getElementById("localStorageOutput").innerHTML += "Book"+(i+1) + ": " + localStorage.getItem("Book"+i) + "<br>";
                         }
                     }
