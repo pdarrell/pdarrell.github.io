@@ -377,8 +377,8 @@
                 
             </div>
             <div id="displayHideEvents">
-                <input id="eventsHideButton" class="display" type="button" value="Hide JavaScript Events" onclick="hideDiv('eventsDiv', 'eventsHideButton', 'eventsDisplayButton')"/>
-                <input id="eventsDisplayButton" class="hide" type="button" value="Display JavaScript Events" onclick="displayDiv('eventsDiv', 'eventsDisplayButton', 'eventsHideButton')"/>
+                <input id="eventsHideButton" class="hide" type="button" value="Hide JavaScript Events" onclick="hideDiv('eventsDiv', 'eventsHideButton', 'eventsDisplayButton')"/>
+                <input id="eventsDisplayButton" class="display" type="button" value="Display JavaScript Events" onclick="displayDiv('eventsDiv', 'eventsDisplayButton', 'eventsHideButton')"/>
             </div>
             <hr>
             <hr>
@@ -403,7 +403,7 @@
                 <div>
                     Click in the rectangle to change its color.
                     <div>
-                        <canvas id="canvas" width="170" height="100" class="canvasBorder" onclick="fillCanvasWithColor(document.getElementById('canvas'))">
+                        <canvas id="canvas" width="170" height="100" class="canvasBorder" onclick="fillCanvasWithColor(document.getElementById('canvas'),document.getElementById('videoAudioDiv'))">
 
                         </canvas>
                     </div>

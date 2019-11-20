@@ -57,13 +57,13 @@ function changeColor(element, color){
  * @param {type} canvas
  * @returns {undefined}
  */
-function fillCanvasWithColor(canvas){
+function fillCanvasWithColor(canvas, div){
     var ctx = canvas.getContext("2d");
     
     //check and switch back to original color
     if (ctx.fillStyle !== "#000000" && ctx.fillStyle !== "#d3d3d3") 
     {
-        ctx.fillStyle = "lightgray";
+        ctx.fillStyle = "#d3d3d3";
         ctx.fillRect(10, 10, 150, 80);
     }else
     {
