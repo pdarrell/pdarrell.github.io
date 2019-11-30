@@ -468,7 +468,7 @@ function addDivElement(id, beforeElement)
     var element = document.createElement("div");
     element.id = id;
     
-    document.getElementById("outputForm").insertBefore(element, beforeElement);
+    document.getElementById("mainForm").insertBefore(element, beforeElement);
     //document.getElementById("outputForm").appendChild(element);
     //document.getElementById("outputForm").refresh;
 }

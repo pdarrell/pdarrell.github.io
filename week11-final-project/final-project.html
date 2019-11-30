@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Purnell Darrell
+Final Project for CIT 261-04
+-->
+<html>
+    <head>
+        <title>Final Project</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="final-project.css">
+        <script src="final-project.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            /**
+            * Display the message for information of topic
+            * @returns {undefined}
+            */
+            function displayLoadMessage()
+            {
+                var msg = "Week 11 of final project";
+                document.getElementById("displayMsgDiv").innerHTML = msg;
+            }
+        </script>
+    </head>
+    <body onload="displayLoadMessage();">
+        <form id="mainForm">
+            <div id="displayMsgDiv"></div>
+            <div>
+                <H2>New York Times Book Reviews</H2>
+                <p>Select the timeframe that you want the reviews for, from the list below.</p><br>
+                <div>
+                    Timeframe:
+                    <select id="timeframeSel" onchange="retrieveBooksFromWebservice('https://api.nytimes.com/svc/books/v3/lists/',document.getElementById('timeframeSel').value)">
+                        <option></option>
+                        <option>Current week</option>
+                        <option>Last week</option>
+                        <option>Last month</option>
+                    </select>
+                </div>
+                <div id="endDiv"></div>
+            </div>
+        </form>
+    </body>
+</html>
