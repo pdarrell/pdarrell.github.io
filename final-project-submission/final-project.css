@@ -30,6 +30,7 @@ and open the template in the editor.
     height: auto;
     padding: 10px;
     perspective: 1000px;
+  
 }
 
 .card
@@ -42,11 +43,26 @@ and open the template in the editor.
     margin: 0 auto;
     transition: all 1s ease;
     transform-style: preserve-3d;
+    -webkit-transition: transform 1.5s;
+    transition: transform 1.5s;
+   
     
 }
 
-.card:hover {
-    transform: rotateY(180deg);
+.front:focus {
+    
+    animation-direction: normal;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-name: explodingBox;
+    animation-iteration-count: 1;
+    
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-name: explodingBox;
+    -webkit-animation-iteration-count: 1;
+    
 }
 
 .lightblue
@@ -63,29 +79,135 @@ and open the template in the editor.
     max-width: 100%;
     padding: 10px;
     margin: 0 auto;
+    z-index: 3;
 }
 
 .link
 {
-    word-wrap: break-word;  
+    width: 100%;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .front
-{
-    
-}
-
-.back
-{
-    transform: rotateY(180deg);
-    
-}
-
-.front, .back
 {
     position: relative;
     width: 100%;
     height: auto;
     border-radius: 10px;
-    backface-visibility: hidden;
+    padding: 2px;
+    z-index: 4;
 }
+
+.centerText
+{
+    text-align: center;
+}
+
+.halfWidth
+{
+    width: 49%;
+    height: auto;
+    text-align: center;
+    padding: 1px;
+}
+
+.floatLeft
+{
+    float: left;
+}
+
+.floatRight
+{
+    float: right;
+}
+
+.centerDiv
+{
+    margin: 0 auto;
+}
+
+@-webkit-keyframes explodingBox
+{
+    15%
+    {
+        -webkit-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+    30%
+    {
+        -webkit-transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        transform: scale(1.25);
+    } 
+    50%
+    {
+        -webkit-transform: scale(1.50);
+        -ms-transform: scale(1.50);
+        transform: scale(1.50);
+        
+    }
+    65%
+    {
+        -webkit-transform: scale(1.60);
+        -ms-transform: scale(1.60);
+        transform: scale(1.60);
+    }
+    80%
+    {
+        -webkit-transform: scale(1.75);
+        -ms-transform: scale(1.75);
+        transform: scale(1.75);
+    }
+    100%
+    {
+        -webkit-transform: scale(2.0);
+        -ms-transform: scale(2.0);
+        transform: scale(2.0);
+       
+    }
+}
+@keyframes explodingBox
+{
+    15%
+    {
+        -webkit-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+    30%
+    {
+        -webkit-transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        transform: scale(1.25);
+    } 
+    50%
+    {
+        -webkit-transform: scale(1.50);
+        -ms-transform: scale(1.50);
+        transform: scale(1.50);
+        
+    }
+    65%
+    {
+        -webkit-transform: scale(1.60);
+        -ms-transform: scale(1.60);
+        transform: scale(1.60);
+    }
+    80%
+    {
+        -webkit-transform: scale(1.75);
+        -ms-transform: scale(1.75);
+        transform: scale(1.75);
+    }
+    100%
+    {
+        -webkit-transform: scale(2.0);
+        -ms-transform: scale(2.0);
+        transform: scale(2.0);
+     
+    }
+}
+
+

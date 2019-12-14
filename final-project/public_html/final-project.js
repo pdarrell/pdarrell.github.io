@@ -41,11 +41,12 @@ function retrieveBooksFromWebservice(webservice, timeframe)
         if (data !== undefined) {
             var books = processJSONObjToBooks(data);
             if (books !== undefined && books.length !== 0){
-                var i = 0;
-                do {
-                    window.localStorage.setItem("Book" + (i+1), books[i]);
-                    i++;
-                } while (books.length > i);
+               // var i = 0;
+               // do {
+               //     window.localStorage.setItem("Book" + (i+1), books[i]);
+               //     i++;
+               // } while (books.length > i);
+               window.localStorage.setItem("Books", JSON.stringify(books));
             }
             displayBooks();
             data=null;
@@ -82,9 +83,7 @@ function Book(title, author, ISDN, review)
     this.toString = function() {
         return "Title: " + this.title + ", Author: " + this.author + ", ISDN: " + this.ISDN + ", Review link: " + this.review;
     }
-    this.toJson = function() {
-        return "book{{title=this.title}{author=this.author}{isdn=this.ISDN}{review=this.review}}";
-    }
+    
     this.description = "";
 }
 
@@ -97,17 +96,75 @@ function displayBooks()
     var localStorage = window.localStorage;
     if(localStorage.length > 0)
     {
+        var books = JSON.parse(localStorage.getItem(localStorage.key(0)));
         var i = 0;
-        while (i < localStorage.length)
+        while (i < books.length)
         {
-           var key = localStorage.key(i);
-           var item = localStorage.getItem(key);
-           addDivElement(key, document.getElementById("endDiv"));
-           addTextToDiv(key + "CardFront", key + ":<br>" + item.toString());
-           addTextToDiv(key + "CardBack", item.description);
+           //var key = localStorage.key(i);
+           //var item = localStorage.getItem(key);
+           var book = books[i];
+           var key = "Book" + (i+1);
+           addDivElements(key, document.getElementById("endDiv"));
+           //addTextToDiv(key + "CardFront", key);
+           createFrontText(key + "CardFront", book);
            i++;
         }
     }
+}
+
+/*
+ * Create the div elements for the front
+ * @param {type} divId
+ * @param {type} book
+ * @returns {undefined}
+ */
+function createFrontText(divId, book)
+{
+    var cssClasses = [];
+    //book
+    cssClasses = ["centerText"];
+    createTextDiv(divId, "<h3>" + divId.substring(0, (divId.length -9)) + "</h3>", "BookDiv", cssClasses);
+    
+    //title
+    cssClasses = ["centerText"];
+    createTextDiv(divId, "<h2>" + book.title + "</h2>", "TitleDiv", cssClasses);
+    
+    //author
+    cssClasses = ["halfWidth", "floatLeft"];
+    createTextDiv(divId, "Author: " + book.author, "AuthorDiv", cssClasses);
+    
+    //ISDN
+    cssClasses = ["halfWidth", "floatRight"];
+    createTextDiv(divId, "ISDN: " + book.ISDN, "ISDNDiv", cssClasses);
+    
+    //review
+    cssClasses = ["link"];
+    createTextDiv(divId, "Review link: " + addAnchorForReviewLink(book.review), "ReviewDiv", cssClasses);
+    
+    //description
+    createTextDiv(divId, "Description: " + book.description, "DescDiv", ["centerDiv", "centerText"]);
+    
+}
+
+/*
+ * Create text within div
+ * @param {type} divId
+ * @param {type} text
+ * @param {type} childDivId
+ * @param {type} cssClasses
+ * @returns {undefined}
+ */
+function createTextDiv(divId, text, childDivId, cssClasses)
+{
+    var frontDiv = document.getElementById(divId);
+    var textDiv = document.createElement("div");
+    textDiv.id = divId + childDivId;
+    for (i=0; i < cssClasses.length; i++)
+    {
+        textDiv.classList.add(cssClasses[i]);
+    }
+    addChildDiv(frontDiv, textDiv, null);
+    addTextToDiv(textDiv.id, text);
 }
 
 /**
@@ -151,17 +208,56 @@ function ajax_json(jsonfile, callback)
 function processTimeframeToReleaseDate(timeframe) 
 {
     var releaseDate = null;
+    var newDate = null;
     if (timeframe == "Current week")
     {
         releaseDate = "current";
-    }else if (timeframe = "Last week")
+    }else if (timeframe == "Last week")
     {
-        releaseDate = "2019-11-23"
-    }else if (timeframe = "Last month")
+        newDate = determineDateBasedOnToday(-7);
+        releaseDate = formatDate(newDate);
+    }else if (timeframe == "Last month")
     {
-        releaseDate = "2019-10-30"
+        newDate = determineDateBasedOnToday(-30);
+        releaseDate = formatDate(newDate);
+    }else if (timeframe == "Last year")
+    {
+        newDate = determineDateBasedOnToday(-365);
+        releaseDate = formatDate(newDate);
     }
+        
     return releaseDate;
+}
+
+/*
+ * Add/substract days from today's date
+ * @param {type} numDays
+ * @returns {determineDateBasedOnToday.newDate|Date}
+ */
+function determineDateBasedOnToday(numDays)
+{
+    var today = new Date();
+    var newDate = new Date();
+    newDate.setDate(today.getDate() + numDays);
+    return newDate;
+}
+
+/*
+ * Format the date to the string required by webservice
+ * @param {type} date
+ * @returns {String}
+ */
+function formatDate(date)
+{
+    var year = date.getFullYear();
+    var month = date.getMonth() + "";
+    var day = date.getDate() + "";
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+    
+    return year + "-" + month + "-" + day;
 }
 
 /**
@@ -177,7 +273,7 @@ function processJSONObjToBooks(jsonObj)
     if (jsonBooks !== undefined)
     {
         do {
-            var book = new Book(jsonBooks[i].title, jsonBooks[i].author, jsonBooks[i].primary_isbn13, addAnchorForReviewLink(jsonBooks[i].book_review_link));
+            var book = new Book(jsonBooks[i].title, jsonBooks[i].author, jsonBooks[i].primary_isbn13, jsonBooks[i].book_review_link);
             book.description = jsonBooks[i].description;
             books[i] = book;
             i++;
@@ -206,7 +302,7 @@ function addAnchorForReviewLink(reviewLink)
  * Create div
  * @returns {findParentElement.element|HTMLCollection.elements}
  */
-function addDivElement(id, beforeElement)
+function addDivElements(id, beforeElement)
 {
     var element = document.createElement("div");
     element.id = id;
@@ -221,17 +317,37 @@ function addDivElement(id, beforeElement)
     {
         element.classList.add("leftDiv");
     }
-    var front = document.createElement("div");
-    front.id = card.id + "Front";
-    front.classList.add("front");
-    var back = document.createElement("div");
-    back.id = card.id + "Back";
-    back.classList.add("back");
-    addChildDiv(card, front, card.childNodes[0]);
-    addChildDiv(card, back, card.childNodes[1]);
+    createFrontDiv(card);
+    createBackDiv(card);
     addChildDiv(element, card, element.childNodes[0]);
     var formElement = document.getElementById("board");
     formElement.insertBefore(element, formElement.beforeElement);
+}
+
+/**
+ * Creates the front div
+ * 
+ */
+function createFrontDiv(card)
+{
+    var front = document.createElement("div");
+    front.id = card.id + "Front";
+    front.classList.add("front");
+    front.classList.add("centerText");
+    addChildDiv(card, front, card.childNodes[0]);
+}
+
+/*
+ * Creates the back div
+ * 
+ */
+function createBackDiv(card)
+{
+    var back = document.createElement("div");
+    back.id = card.id + "Back";
+    back.classList.add("back");
+    back.classList.add("centerText");
+    addChildDiv(card, back, card.childNodes[1]);
 }
 
 /**
