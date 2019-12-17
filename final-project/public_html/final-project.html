@@ -20,6 +20,11 @@ Final Project for CIT 261-04
                 var msg = "Final project";
                 document.getElementById("displayMsgDiv").innerHTML = msg;
             }
+            function displayReviewDateMessage(date)
+            {
+                var msg = "<h4>Book reviews as of " + date + "</h4>";    
+                document.getElementById("reviewDateMsgDiv").innerHTML = msg;
+            }
         </script>
     </head>
     <body onload="displayLoadMessage(); displayBooks();">
@@ -37,9 +42,10 @@ Final Project for CIT 261-04
                         <option>Last month</option>
                         <option>Last year</option>
                     </select>
+                    <div id="reviewDateMsgDiv"></div>
                 </div>
                 <div id="board">
-                   <div id="endDiv"></div> 
+                    <div id="endDiv"></div> 
                 </div>
             </div>
         </form>

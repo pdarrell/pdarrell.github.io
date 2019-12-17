@@ -41,28 +41,30 @@ and open the template in the editor.
     border-radius: 10px;
     border: 1px solid green;
     margin: 0 auto;
-    transition: all 1s ease;
+    /* transition: all 1s ease;
     transform-style: preserve-3d;
     -webkit-transition: transform 1.5s;
-    transition: transform 1.5s;
+    -moz-transition: transform 1.5s;
+    transition: transform 1.5s; */
    
     
 }
 
-.front:focus {
+.front:focus
+{   
+     -webkit-animation-play-state: inherit !important;
+     -moz-animation-play-state: inherit !important;
+     animation-play-state: inherit !important;
     
-    animation-direction: normal;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-name: explodingBox;
-    animation-iteration-count: 1;
-    
-    -webkit-animation-direction: normal;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-name: explodingBox;
+    -webkit-animation: explodingBox 2s linear;
+    -moz-animation: explodingBox 2s linear;
+    animation: explodingBox 2s linear;
     -webkit-animation-iteration-count: 1;
-    
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+    animation-direction: normal;    
 }
 
 .lightblue
@@ -79,7 +81,7 @@ and open the template in the editor.
     max-width: 100%;
     padding: 10px;
     margin: 0 auto;
-    z-index: 3;
+    
 }
 
 .link
@@ -96,7 +98,7 @@ and open the template in the editor.
     height: auto;
     border-radius: 10px;
     padding: 2px;
-    z-index: 4;
+    
 }
 
 .centerText
@@ -132,18 +134,21 @@ and open the template in the editor.
     15%
     {
         -webkit-transform: scale(1.0);
+        -moz-transform: scale(1.0);
         -ms-transform: scale(1.0);
         transform: scale(1.0);
     }
     30%
     {
         -webkit-transform: scale(1.25);
+        -moz-transform: scale(1.25);
         -ms-transform: scale(1.25);
         transform: scale(1.25);
     } 
     50%
     {
         -webkit-transform: scale(1.50);
+        -moz-transform: scale(1.50);
         -ms-transform: scale(1.50);
         transform: scale(1.50);
         
@@ -151,40 +156,47 @@ and open the template in the editor.
     65%
     {
         -webkit-transform: scale(1.60);
+        -moz-transform: scale(1.60);
         -ms-transform: scale(1.60);
         transform: scale(1.60);
     }
     80%
     {
         -webkit-transform: scale(1.75);
+        -moz-transform: scale(1.75);
         -ms-transform: scale(1.75);
         transform: scale(1.75);
     }
     100%
     {
         -webkit-transform: scale(2.0);
+        -moz-transform: scale(2.0);
         -ms-transform: scale(2.0);
         transform: scale(2.0);
        
     }
 }
-@keyframes explodingBox
+
+@-moz-keyframes explodingBox
 {
     15%
     {
         -webkit-transform: scale(1.0);
+        -moz-transform: scale(1.0);
         -ms-transform: scale(1.0);
         transform: scale(1.0);
     }
     30%
     {
         -webkit-transform: scale(1.25);
+        -moz-transform: scale(1.25);
         -ms-transform: scale(1.25);
         transform: scale(1.25);
     } 
     50%
     {
         -webkit-transform: scale(1.50);
+        -moz-transform: scale(1.50);
         -ms-transform: scale(1.50);
         transform: scale(1.50);
         
@@ -192,22 +204,74 @@ and open the template in the editor.
     65%
     {
         -webkit-transform: scale(1.60);
+        -moz-transform: scale(1.60);
         -ms-transform: scale(1.60);
         transform: scale(1.60);
     }
     80%
     {
         -webkit-transform: scale(1.75);
+        -moz-transform: scale(1.75);
         -ms-transform: scale(1.75);
         transform: scale(1.75);
     }
     100%
     {
         -webkit-transform: scale(2.0);
+        -moz-transform: scale(2.0);
         -ms-transform: scale(2.0);
         transform: scale(2.0);
-     
+       
     }
 }
+
+@keyframes explodingBox
+{
+    15%
+    {
+        -webkit-transform: scale(1.0);
+        -moz-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+    30%
+    {
+        -webkit-transform: scale(1.25);
+        -moz-transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        transform: scale(1.25);
+    } 
+    50%
+    {
+        -webkit-transform: scale(1.50);
+        -moz-transform: scale(1.50);
+        -ms-transform: scale(1.50);
+        transform: scale(1.50);
+        
+    }
+    65%
+    {
+        -webkit-transform: scale(1.60);
+        -moz-transform: scale(1.60);
+        -ms-transform: scale(1.60);
+        transform: scale(1.60);
+    }
+    80%
+    {
+        -webkit-transform: scale(1.75);
+        -moz-transform: scale(1.75);
+        -ms-transform: scale(1.75);
+        transform: scale(1.75);
+    }
+    100%
+    {
+        -webkit-transform: scale(2.0);
+        -moz-transform: scale(2.0);
+        -ms-transform: scale(2.0);
+        transform: scale(2.0);
+       
+    }
+}
+
 
 

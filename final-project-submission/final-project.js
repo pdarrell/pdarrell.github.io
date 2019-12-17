@@ -48,6 +48,7 @@ function retrieveBooksFromWebservice(webservice, timeframe)
                // } while (books.length > i);
                window.localStorage.setItem("Books", JSON.stringify(books));
             }
+            window.localStorage.setItem("ReleaseDate", releaseDate);
             displayBooks();
             data=null;
         }
@@ -96,6 +97,7 @@ function displayBooks()
     var localStorage = window.localStorage;
     if(localStorage.length > 0)
     {
+        var releaseDate = formatDateReadable(localStorage.getItem("ReleaseDate"));
         var books = JSON.parse(localStorage.getItem(localStorage.key(0)));
         var i = 0;
         while (i < books.length)
@@ -109,6 +111,68 @@ function displayBooks()
            createFrontText(key + "CardFront", book);
            i++;
         }
+        if (releaseDate != undefined || releaseDate != null)
+        {
+            displayReviewDateMessage(releaseDate);
+        }
+    }
+}
+
+/*
+ * Formats the date from webservice format to readable format
+ * @param {type} date
+ * @returns {undefined}
+ */
+function formatDateReadable(dateString)
+{
+    if (dateString == "current")
+    {
+        returnDate = new Date();
+    }else{
+        var returnDate = new Date(dateString);
+    }
+    var year = returnDate.getFullYear();
+    var month = findMonthName(returnDate.getMonth());
+    var day = returnDate.getDate();
+    returnDate = month + " " + day + ", " + year;
+    return returnDate;
+}
+
+function findMonthName(month)
+{
+    if (month != undefined || month != null)
+    {
+        switch (month)
+        {
+            case 0:
+               return "January";
+            case 1:
+               return "Febuary";
+            case 2:
+               return "March";
+            case 3:
+               return "April";
+            case 4:
+               return "May";
+            case 5:
+               return "June";
+            case 6:
+               return "July";
+            case 7:
+               return "August";
+            case 8:
+               return "September";
+            case 9:
+               return "October";
+            case 10:
+               return "November";
+            case 11:
+               return "December";
+           default:
+               return month;
+        };
+               
+               
     }
 }
 
@@ -238,7 +302,10 @@ function determineDateBasedOnToday(numDays)
 {
     var today = new Date();
     var newDate = new Date();
-    newDate.setDate(today.getDate() + numDays);
+    if (numDays != undefined || numDays != null)
+    {
+        newDate.setDate((today.getDate() + numDays));
+    }
     return newDate;
 }
 
@@ -250,7 +317,7 @@ function determineDateBasedOnToday(numDays)
 function formatDate(date)
 {
     var year = date.getFullYear();
-    var month = date.getMonth() + "";
+    var month = (date.getMonth() + 1) + "";
     var day = date.getDate() + "";
     if (month.length < 2) 
         month = '0' + month;
