@@ -35,7 +35,7 @@ Final Project for CIT 261-04
                 <p>Select the timeframe that you want the reviews for, from the list below.</p><br>
                 <div>
                     Timeframe:
-                    <select id="timeframeSel" onchange="retrieveBooksFromWebservice('https://api.nytimes.com/svc/books/v3/lists/',document.getElementById('timeframeSel').value)">
+                    <select id="timeframeSel" onclick="retrieveBooksFromWebservice('https://api.nytimes.com/svc/books/v3/lists/',document.getElementById('timeframeSel').value)">
                         <option></option>
                         <option>Current week</option>
                         <option>Last week</option>
