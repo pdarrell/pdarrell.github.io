@@ -50,7 +50,7 @@ and open the template in the editor.
     
 }
 
-.front:focus
+/*.front:focus
 {   
      -webkit-animation-play-state: inherit !important;
      -moz-animation-play-state: inherit !important;
@@ -65,9 +65,9 @@ and open the template in the editor.
     -webkit-animation-direction: normal;
     -moz-animation-direction: normal;
     animation-direction: normal;    
-}
+}*/
 
-.card:hover
+.front:hover
 {
     background-color: lightgrey;
     transition: all ease-in-out 2s;
