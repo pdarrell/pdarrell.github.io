@@ -48,7 +48,7 @@ function retrieveBooksFromWebservice(webservice, timeframe)
                // } while (books.length > i);
                window.localStorage.setItem("Books", JSON.stringify(books));
             }
-            //window.localStorage.setItem("ReleaseDate", releaseDate);
+            window.localStorage.setItem("ReleaseDate", releaseDate);
             displayBooks();
             data=null;
         }
@@ -97,7 +97,7 @@ function displayBooks()
     var localStorage = window.localStorage;
     if(localStorage.length > 0)
     {
-        //var releaseDate = formatDateReadable(localStorage.getItem("ReleaseDate"));
+        var releaseDate = formatDateReadable(localStorage.getItem("ReleaseDate"));
         var books = JSON.parse(localStorage.getItem("Books")); //localStorage.key(0)));
         var i = 0;
         while (i < books.length)
@@ -111,10 +111,10 @@ function displayBooks()
            createFrontText(key + "CardFront", book);
            i++;
         }
-        /*if (releaseDate != undefined || releaseDate != null)
+        if (releaseDate != undefined || releaseDate != null)
         {
             displayReviewDateMessage(releaseDate);
-        }*/
+        }
     }
 }
 
@@ -201,19 +201,19 @@ function createFrontText(divId, book)
     //author
     //cssClasses = ["halfWidth", "floatLeft"];
     cssClasses = ["centerText"];
-    createTextDiv(divId, "Author: " + book.author, "AuthorDiv", cssClasses);
+    createTextDiv(divId, "<b>Author:</b> " + book.author, "AuthorDiv", cssClasses);
     
     //ISDN
     //cssClasses = ["halfWidth", "floatRight"];
     cssClasses = ["centerText"];
-    createTextDiv(divId, "ISDN: " + book.ISDN, "ISDNDiv", cssClasses);
+    createTextDiv(divId, "<b>ISDN:</b> " + book.ISDN, "ISDNDiv", cssClasses);
     
     //review
     cssClasses = ["link"];
-    createTextDiv(divId, "Review link: " + addAnchorForReviewLink(book.review), "ReviewDiv", cssClasses);
+    createTextDiv(divId, "<b>Review link:</b> " + addAnchorForReviewLink(book.review), "ReviewDiv", cssClasses);
     
     //description
-    createTextDiv(divId, "Description: " + book.description, "DescDiv", ["centerDiv", "centerText"]);
+    createTextDiv(divId, "<b>Description:</b> " + book.description, "DescDiv", ["centerDiv", "centerText"]);
     
 }
 
