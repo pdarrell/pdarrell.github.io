@@ -104,6 +104,7 @@ and open the template in the editor.
 .centerText
 {
     text-align: center;
+    padding: 2px;
 }
 
 .halfWidth
@@ -126,6 +127,7 @@ and open the template in the editor.
 
 .centerDiv
 {
+    padding: 2px;
     margin: 0 auto;
 }
 

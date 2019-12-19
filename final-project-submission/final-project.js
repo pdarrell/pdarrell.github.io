@@ -48,7 +48,7 @@ function retrieveBooksFromWebservice(webservice, timeframe)
                // } while (books.length > i);
                window.localStorage.setItem("Books", JSON.stringify(books));
             }
-            window.localStorage.setItem("ReleaseDate", releaseDate);
+            //window.localStorage.setItem("ReleaseDate", releaseDate);
             displayBooks();
             data=null;
         }
@@ -97,7 +97,7 @@ function displayBooks()
     var localStorage = window.localStorage;
     if(localStorage.length > 0)
     {
-        var releaseDate = formatDateReadable(localStorage.getItem("ReleaseDate"));
+        //var releaseDate = formatDateReadable(localStorage.getItem("ReleaseDate"));
         var books = JSON.parse(localStorage.getItem(localStorage.key(0)));
         var i = 0;
         while (i < books.length)
@@ -111,10 +111,10 @@ function displayBooks()
            createFrontText(key + "CardFront", book);
            i++;
         }
-        if (releaseDate != undefined || releaseDate != null)
+        /*if (releaseDate != undefined || releaseDate != null)
         {
             displayReviewDateMessage(releaseDate);
-        }
+        }*/
     }
 }
 
@@ -138,6 +138,11 @@ function formatDateReadable(dateString)
     return returnDate;
 }
 
+/*
+ * Get the month name from number value
+ * @param {type} month
+ * @returns {String}
+ */
 function findMonthName(month)
 {
     if (month != undefined || month != null)
@@ -191,14 +196,16 @@ function createFrontText(divId, book)
     
     //title
     cssClasses = ["centerText"];
-    createTextDiv(divId, "<h2>" + book.title + "</h2>", "TitleDiv", cssClasses);
+    createTextDiv(divId, "<h3>" + book.title + "</h3>", "TitleDiv", cssClasses);
     
     //author
-    cssClasses = ["halfWidth", "floatLeft"];
+    //cssClasses = ["halfWidth", "floatLeft"];
+    cssClasses = ["centerText"];
     createTextDiv(divId, "Author: " + book.author, "AuthorDiv", cssClasses);
     
     //ISDN
-    cssClasses = ["halfWidth", "floatRight"];
+    //cssClasses = ["halfWidth", "floatRight"];
+    cssClasses = ["centerText"];
     createTextDiv(divId, "ISDN: " + book.ISDN, "ISDNDiv", cssClasses);
     
     //review
@@ -378,12 +385,13 @@ function addDivElements(id, beforeElement)
     card.id = id + "Card";
     card.classList.add("card");
     card.classList.add("lightblue");
-    if (even(id)){
+    /*if (even(id)){
         element.classList.add("rightDiv");
     }else
     {
         element.classList.add("leftDiv");
-    }
+    }*/
+    element.classList.add("centerDiv");
     createFrontDiv(card);
     createBackDiv(card);
     addChildDiv(element, card, element.childNodes[0]);
