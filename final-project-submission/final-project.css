@@ -67,6 +67,14 @@ and open the template in the editor.
     animation-direction: normal;    
 }
 
+.card:hover
+{
+    background-color: lightgrey;
+    transition: all ease-in-out 2s;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
 .lightblue
 {
     background-color: lightblue;
@@ -98,7 +106,13 @@ and open the template in the editor.
     height: auto;
     border-radius: 10px;
     padding: 2px;
-    
+    backface-visibility: hidden;
+}
+
+.back
+{
+    backface-visibility: hidden;
+    transform: rotateY(180deg); 
 }
 
 .centerText
