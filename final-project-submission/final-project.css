@@ -67,12 +67,15 @@ and open the template in the editor.
     animation-direction: normal;    
 }*/
 
-.front:focus
+.front:hover
 {
     background-color: lightgrey;
     transition: all ease-in-out 2s;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .lightblue
@@ -99,6 +102,18 @@ and open the template in the editor.
     text-align: center;
 }
 
+.front, .back {
+ -webkit-backface-visibility: hidden;
+         backface-visibility: hidden;
+ -webkit-transition: 0.6s;
+         transition: 0.6s;
+ -webkit-transform-style: preserve-3d;
+         transform-style: preserve-3d;
+ position: relative;
+ top: 0;
+ left: 0;
+ }
+
 .front
 {
     position: relative;
@@ -106,7 +121,12 @@ and open the template in the editor.
     height: auto;
     border-radius: 10px;
     padding: 2px;
+     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    
+    z-index: 2;
 }
 
 .back
@@ -116,8 +136,12 @@ and open the template in the editor.
     height: auto;
     border-radius: 10px;
     padding: 2px;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    transform: rotateY(180deg); 
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg); 
+    
+    z-index: 0;
 }
 
 .centerText
