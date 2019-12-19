@@ -98,7 +98,7 @@ function displayBooks()
     if(localStorage.length > 0)
     {
         //var releaseDate = formatDateReadable(localStorage.getItem("ReleaseDate"));
-        var books = JSON.parse(localStorage.getItem(localStorage.key(0)));
+        var books = JSON.parse(localStorage.getItem("Books")); //localStorage.key(0)));
         var i = 0;
         while (i < books.length)
         {
