@@ -29,22 +29,25 @@ Final Project for CIT 261-04
     </head>
     <body onload="displayLoadMessage(); displayBooks();">
         <form id="mainForm">
-            <div id="displayMsgDiv"></div>
-            <div>
-                <H2>New York Times Book Reviews</H2>
-                <p>Select the timeframe that you want the reviews for, from the list below.</p><br>
-                <div>
-                    Timeframe:
-                    <select id="timeframeSel" onchange="retrieveBooksFromWebservice('https://api.nytimes.com/svc/books/v3/lists/',document.getElementById('timeframeSel').value)">
-                        <option></option>
-                        <option>Current week</option>
-                        <option>Last week</option>
-                        <option>Last month</option>
-                        <option>Last year</option>
-                    </select>
-                    <div id="reviewDateMsgDiv"></div>
+            <div id="displayMsgDiv" class="centerDiv centerText"></div>
+            <div class="centerdiv">
+                <div class="centerDiv">
+                    <H2 class="centerText">New York Times Book Reviews</H2>
+                    <p class="centerText">Select the timeframe that you want the reviews for, from the list below.</p><br>
                 </div>
-                <div id="board">
+                <div class="centerDiv">
+                    <div class="centerDiv centerText">Timeframe:
+                        <select id="timeframeSel" class="centerDiv" onchange="retrieveBooksFromWebservice('https://api.nytimes.com/svc/books/v3/lists/',document.getElementById('timeframeSel').value)">
+                            <option></option>
+                            <option>Current week</option>
+                            <option>Last week</option>
+                            <option>Last month</option>
+                            <option>Last year</option>
+                        </select>
+                    </div>
+                    <div id="reviewDateMsgDiv" class="centerDiv centerText"></div>
+                </div>
+                <div id="board" class="centerDiv">
                     <div id="endDiv"></div> 
                 </div>
             </div>
