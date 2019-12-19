@@ -50,7 +50,7 @@ and open the template in the editor.
     
 }
 
-.front:hover
+.front:focus
 {   
      -webkit-animation-play-state: inherit !important;
      -moz-animation-play-state: inherit !important;
