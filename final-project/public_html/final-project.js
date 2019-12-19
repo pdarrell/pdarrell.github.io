@@ -453,5 +453,21 @@ function even(id)
     return even;
 }
  
-
+ 
+ function toggleClass(div)
+ {
+     for (i=0; i < div.classList.entries.length; i++)
+     {
+         var entry = div.classList.entries[i];
+         if (entry == "back")
+         {
+             div.classList.remove("back");
+             div.classList.add("front");
+         }else
+         {
+             div.classList.remove("front");
+             div.classList.add("back");
+         }
+     }
+ }
 

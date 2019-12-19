@@ -50,7 +50,7 @@ and open the template in the editor.
     
 }
 
-/*.front:focus
+.front:hover
 {   
      -webkit-animation-play-state: inherit !important;
      -moz-animation-play-state: inherit !important;
@@ -65,9 +65,20 @@ and open the template in the editor.
     -webkit-animation-direction: normal;
     -moz-animation-direction: normal;
     animation-direction: normal;    
+}
+
+/*.front:hover
+{
+    background-color: lightgrey;
+    transition: all ease-in-out 2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }*/
 
-.front:focus
+/*.back:focus
 {
     background-color: lightgrey;
     transition: all ease-in-out 2s;
@@ -76,18 +87,7 @@ and open the template in the editor.
     transform-style: preserve-3d;
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
-}
-
-.back:focus
-{
-    background-color: lightgrey;
-    transition: all ease-in-out 2s;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-}
+}*/
 
 .lightblue
 {
