@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>JavaScript - Objects</title>
+        <meta charset="UTF-8">
+       <script src="week-four-t3.js"></script>
+	   <script>
+			/* getFilename is only called from html and displays the 
+				returned JSON Object from the createFilenameAndPathObject function
+				retrieve the filename value from JSON object
+				to the div on the html*/
+            function getFilenameAndPath(path){
+                    var filenamePathObj = createPathAndFilenameObject(path);
+                    var filename = filenamePathObj.filename;
+                    var pkgString = filenameAndPathString(filenamePathObj);
+                    document.getElementById("filenameOutput").innerHTML = filename;
+                    document.getElementById("pathOutput").innerHTML = filenamePathObj.path;
+                    document.getElementById("stringifyOutput").innerHTML = pkgString;
+                    document.getElementById("parseOutput").innerHTML = parseJSONObject(pkgString);
+            }
+            /**
+                 * Parse the file system path and retrieve its parts in an object
+                 * @param {type} path
+                 * @returns {undefined}
+                 */
+                function getFileSystemPath(path){
+                    var fileSystemPath = parsePathParts(path);
+                    var filePath = "";
+                    if (fileSystemPath !== undefined){
+                        //call method on object to print to display parts
+                        filePath = fileSystemPath.printOutput();
+                    }
+                    document.getElementById("fileSystemPath").innerHTML = filePath;
+                }
+       </script>
+	   </head>
+    <body>
+	<h2>Find filename</h2>
+        <br> 
+        Enter a path and filename delimited by either a Windows (\) or Unix (/) delimiter.<br>
+        Click the Find filename button.<br>
+        The filename with its extension is displayed below the button.<br>
+        The path is display under the filename.<br>
+        And the whole object contents are displayed under path.<br>
+		<br>
+	Enter path and filename:
+        <input id="input" type="text" value=""/>
+        <br>
+        <input type="button" value="Find filename and Path" onclick="getFilenameAndPath(document.getElementById('input').value)"/>
+        <br>
+        Filename: <div id="filenameOutput"></div>
+        <br>
+	Path: <div id="pathOutput"></div>
+        <br>
+	Stringify: <div id="stringifyOutput"></div>
+        <br>
+        Parse: <div id="parseOutput"></div>
+        <br>
+        <br>
+        <input type="button" value="Get file system path parts" onclick="getFileSystemPath(document.getElementById('input').value)"/>
+        <br>
+        File system path parts:
+        <div id="fileSystemPath"></div>
+    </body>
+</html>
