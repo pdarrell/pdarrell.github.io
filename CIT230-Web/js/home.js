@@ -6,3 +6,4 @@ function getLastModifiedDateTime()
 {
     return document.lastModified;
 }
+
