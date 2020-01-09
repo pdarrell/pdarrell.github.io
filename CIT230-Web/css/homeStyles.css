@@ -1,0 +1,46 @@
+
+.blueBackground
+{
+    background-color: blue;
+    border-radius: .3em;
+}
+
+.leftAlign
+{
+    text-align: left;
+    padding: 0 0 0 15px;
+}
+
+.centerAlign
+{
+    text-align: center;
+}
+
+.center
+{
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.floatRight
+{
+    float: right;
+}
+
+.imgSize
+{
+    width: 5em;
+    height: 8em;
+    padding: 0 10px;
+    margin: -2.5em .2em;
+}
+
+hr
+{
+    width: 90%;
+}
+
+.whiteColor
+{
+    color: white;
+}

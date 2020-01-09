@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h2>some text for testing</h2>
-</body>
+    <head>
+        <title>Home Portal</title>
+        <meta lang="en-us" charset="utf-8">
+        <link href="../css/homeStyles.css" rel="stylesheet">
+        <script src="../js/home.js"></script>
+        <script type="text/javascript">
+            function lastModified()
+            {
+                document.getElementById("lastModified").innerText += getLastModifiedDateTime();
+            }
+        </script>
+    </head>
+    <body onload="lastModified();" class="center">
+        <section>
+            <div class="blueBackground centerAlign">
+                <H2>Purnell Darrell</H2>
+
+            </div>
+            <img src="personalPicture.jpg" class="floatRight imgSize">
+
+        </section>
+        <section>
+
+            <div class="leftAlign">
+                <H3>CIT 230: Assignment Portal</H3>
+            </div>
+            <hr>
+            <div>
+                <ul>
+                    <li>Lesson 02: <a href="#">Assignment Link</a></li>
+                    <li>Lesson 03: <a href="#">Assignment Link</a></li>
+                    <li>Lesson 04: <a href="#">Link</a> | <a href="#">Link</a></li>
+                </ul>
+            </div>
+
+        </section>
+        <footer>
+            <div class="blueBackground">
+                <p class="centerAlign">&copy 2020 | Purnell Darell | Philadelphia | BYUI Online Learning</p>
+                <p class="centerAlign whiteColor" id="lastModified">Last Updated: </p>
+            </div>
+        </footer>
+    </body>
 </hmtl>
