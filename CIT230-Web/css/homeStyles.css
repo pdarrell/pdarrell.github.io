@@ -18,7 +18,8 @@
 
 .center
 {
-    max-width: 50%;
+    max-width: 100%;
+    min-width: 25%;
     margin: 0 auto;
 }
 
@@ -30,7 +31,7 @@
 .imgSize
 {
     max-width: 20%;
-    min-width: 10%;
+    min-width: 5%;
     height: auto;
     padding: 0 10px;
     margin: -4em .2em;
