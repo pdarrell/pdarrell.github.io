@@ -29,8 +29,8 @@
 
 .imgSize
 {
-    width: 6em;
-    height: 10em;
+    max-width: 6em;
+    height: auto;
     padding: 0 10px;
     margin: -4em .2em;
 }
