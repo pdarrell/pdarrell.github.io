@@ -1,7 +1,7 @@
 
 .blueBackground
 {
-    background-color: blue;
+    background-color: lightblue;
     border-radius: .3em;
 }
 
@@ -29,10 +29,10 @@
 
 .imgSize
 {
-    width: 5em;
-    height: 8em;
+    width: 6em;
+    height: 10em;
     padding: 0 10px;
-    margin: -2.5em .2em;
+    margin: -4em .2em;
 }
 
 hr
@@ -45,3 +45,17 @@ hr
     color: white;
 }
 
+.header
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    padding: .1px 0 .1px 0;
+}
+
+.footer
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    padding: 1px 0 1px 0;
+    margin: 1px 0 1px 0;
+}
