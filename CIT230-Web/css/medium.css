@@ -1,0 +1,40 @@
+@media (min-width: 32.5em)
+{
+
+
+    .blueBackground
+    {
+        background-color: lightblue;
+        border-radius: 1em;
+    }
+
+    .imgSize
+    {
+        max-width: 8em;
+        min-width: 5em;
+        height: auto;
+        padding: 5px 10px;
+        margin: -.1em .1em;
+        float: right;
+        border-radius: 3em;
+    }
+    
+    .header
+    {
+        font-family: 'Barlow', sans-serif;
+        font-size: 14pt;
+        text-size-adjust: 0.5;
+        padding: .1px 0 .1px 0;
+    }
+
+    h2
+    {
+        font-family: 'Barlow', sans-serif;
+        font-size: 14pt;
+        text-size-adjust: 0.5;
+    }
+
+
+}
+
+
