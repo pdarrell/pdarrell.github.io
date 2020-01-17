@@ -1,0 +1,71 @@
+
+body 
+{
+    width: 100%;
+    margin: 0;
+}
+
+
+header 
+{
+    background-color: lightblue;
+}
+
+header h1
+{
+    font-family: 'Barlow', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+main 
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em;
+}
+
+main h2, h3 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+section 
+{
+    border: 2px solid lightblue;
+}
+
+section div a 
+{
+    padding: 1em;
+}
+
+section img 
+{
+    padding: 1em;
+    margin: 0 auto;
+}
+
+p 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    word-wrap: break-word;
+    padding: 1em;
+}
+
+
+footer
+{
+    width: 100%;
+    background-color: lightblue;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+footer div 
+{
+    text-align: center;
+}
