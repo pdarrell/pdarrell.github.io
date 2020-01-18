@@ -43,6 +43,7 @@ section
 {
     max-width: 100%;
     border: 2px solid lightblue;
+    border-radius: 2em;
     padding: 0 1em;
     margin: .5em 1em;
 }
