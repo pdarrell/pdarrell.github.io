@@ -2,13 +2,18 @@
 body 
 {
     width: 100%;
-    margin: 0;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
 }
 
 
 header 
 {
+    width: 100%;
     background-color: lightblue;
+    padding: 0;
+    margin: 0;
 }
 
 header h1
@@ -16,6 +21,8 @@ header h1
     font-family: 'Barlow', sans-serif;
     font-size: 2rem;
     text-align: center;
+    padding: 1em;
+    margin: 1em;
 }
 
 
@@ -23,7 +30,7 @@ main
 {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 1em;
+    padding: 0 1em;
 }
 
 main h2, h3 
@@ -34,7 +41,15 @@ main h2, h3
 
 section 
 {
+    max-width: 100%;
     border: 2px solid lightblue;
+    padding: 0 1em;
+    margin: .5em 1em;
+}
+
+section div 
+{
+    text-align: center;
 }
 
 section div a 
@@ -44,8 +59,9 @@ section div a
 
 section img 
 {
-    padding: 1em;
-    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0;
+    margin: 0;
 }
 
 p 
@@ -53,6 +69,7 @@ p
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     word-wrap: break-word;
+    text-align: center;
     padding: 1em;
 }
 
@@ -61,11 +78,16 @@ footer
 {
     width: 100%;
     background-color: lightblue;
-    padding: 1em;
-    margin: 0 auto;
+    padding: 1em 0;
+    margin: 1em 0;
 }
 
 footer div 
+{
+    text-align: center;
+}
+
+footer p 
 {
     text-align: center;
 }
