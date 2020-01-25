@@ -4,8 +4,8 @@
 
 function contactCopyright()
 {
-    document.getElementById("contact").innerHTML += "email: dar17006@byui.edu";
-    document.getElementById("copyright").innerHTML += getCurrentYear() + " - Purnell Darrell - " + getCurrentDate();
+    document.getElementById("contact").innerHTML += "email: dar17006@byui.edu <br>Site Map: <br><img id='sitemap' alt='sitemap' src='./images/sitemaplesson3.jpg'>";
+    document.getElementById("copyright").innerHTML += getCurrentYear() + " - Purnell Darrell <br><a target='_blank' href='https://www.byui.edu/online'>Terms of Use</a><br>" + getCurrentDate();
 }
 
 function getCurrentYear()

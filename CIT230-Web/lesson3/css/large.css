@@ -1,4 +1,18 @@
 @media only screen and (min-width: 60em) 
 {
+    nav ul 
+    {
+        margin-left: 30%;
+    }
+    
+    #sitename img 
+    {
+        width: auto;
+        padding: 0 0rem 0 10rem;
+    } 
 
+    #colorscheme img 
+    {
+        padding: 0 0rem 0 20rem;
+    }
 }

@@ -25,7 +25,7 @@
 
     nav ul 
     {
-        margin-left: 2%;
+        margin-left: 15%;
     }
 
     nav ul li 
@@ -39,10 +39,46 @@
         padding: 1rem 1.5rem;
     }
 
-    section img 
+    #sitename img 
+    {
+        width: 600px;
+    } 
+
+    #colorscheme img 
     {
         width: 60rem;
+        padding: 0 10rem;
     }
 
+
+    #headerSample
+    {
+        font-family: 'Barlow', sans-serif;
+        font-size: 2rem;
+    }
+
+    #primnavSample 
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5em;
+    }
+
+    #footnavSample
+    {
+        font-family: 'Barlow', sans-serif;
+        font-size: 16px;
+    }
+
+    #head1Sample
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+    }
+
+    #head2Sample, #head3Sample, #paraSample
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+    }
 
 }

@@ -10,6 +10,7 @@ body
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+    margin: 0;
 }
 
 header 
@@ -17,6 +18,9 @@ header
     font-family: 'Barlow', sans-serif;
     background-color: #93d2ea;
     font-size: 16px;
+    padding: .1rem;
+    margin: 0;
+    text-align: center;
 }
 
 header h1 
@@ -72,17 +76,19 @@ nav ul li.active a
 main 
 {
     padding: 1rem;
-    margin: .5rem;
+    margin: 1rem;
 }
 
 main h1 
 {
     padding: 1rem;
+    text-align: center;
 }
 
 section 
 {
     padding: 1rem;
+    text-align: center;
 }
 
 section h2, h3 
@@ -92,17 +98,25 @@ section h2, h3
 
 section p
 {
-    padding: 0 .5rem .5rem .5rem;    
+    padding: 0 .5rem .5rem .5rem;  
 }
 
-section img 
+#sitename img 
 {
-    width: 500px;
+    width: 325px;
+    padding: 0;
+}
+
+#colorscheme img 
+{
+    width: 325px;
+    padding: 0 0 0 4rem;
 }
 
 section table 
 {
     border: 1px solid black;
+    padding: 0;
 }
 
 section table tr 
@@ -117,6 +131,7 @@ section table td
 
 footer 
 {
+    width: 100%;
     background-color: #93d2ea;
     font-family: 'Barlow', sans-serif;
     font-size: 16px;
@@ -126,12 +141,25 @@ footer div
 {
     margin: 0;
     text-align: center;
+    word-wrap: break-word;
+}
+
+#sitemap
+{
+    background-color: #93d2ea;
+    width: 300px;
 }
 
 #headerSample
 {
     font-family: 'Barlow', sans-serif;
-    font-size: 20px;
+    font-size: 1.3rem;
+}
+
+#primnavSample 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
 }
 
 #footnavSample
