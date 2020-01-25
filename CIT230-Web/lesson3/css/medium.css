@@ -1,0 +1,48 @@
+@media only screen and (min-width: 35em) 
+{
+
+    header h1 
+    {
+        font-size: 2rem;
+    }
+
+    header h2
+    {
+        font-size: 1.5rem;
+    }
+
+    header img 
+    {
+        width: auto;
+    }
+
+    nav 
+    {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+    }
+
+    nav ul 
+    {
+        margin-left: 2%;
+    }
+
+    nav ul li 
+    {
+        float: left;
+    }
+
+    nav ul li a 
+    {
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+    }
+
+    section img 
+    {
+        width: 60rem;
+    }
+
+
+}
