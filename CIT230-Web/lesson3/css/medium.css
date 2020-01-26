@@ -18,35 +18,35 @@
 
     nav 
     {
-        display: inline-block;
         width: 100%;
         margin: 0;
-    }
-
-    nav ul 
-    {
-        margin-left: 15%;
+        text-align: center;
     }
 
     nav ul li 
     {
-        float: left;
+        display: inline;
+        padding: 0 1rem;
+        margin: 0;
     }
 
     nav ul li a 
     {
-        padding: 1rem 1.5rem;
+        display: inline-block;
+        padding: 1rem 1rem;
     }
 
     #sitename img 
     {
         width: 600px;
+        margin: 0;
     } 
 
     #colorscheme img 
     {
         width: 60rem;
         padding: 0 10rem;
+        margin: 0;
     }
     
     #headerSample
