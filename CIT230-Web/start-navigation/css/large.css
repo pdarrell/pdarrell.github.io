@@ -1,0 +1,40 @@
+/* 64em is also 1028px when basefont is 16px */
+@media only screen and (min-width: 64rem) {
+
+    nav 
+    {
+        background: rgb(255,50,50);
+        background: -moz-linear-gradient(top,  rgba(255,50,50,1) 0%, rgba(170,0,0,1) 100%);
+        background: -webkit-linear-gradient(top,  rgba(255,50,50,1) 0%,rgba(170,0,0,1) 100%);
+        background: linear-gradient(to bottom,  rgba(255,50,50,1) 0%,rgba(170,0,0,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#aa0000',GradientType=0 );
+
+    }
+    
+    nav button
+    {
+        display: none;
+
+    }
+
+    nav ul 
+    {
+        margin-left: 2%;
+    }
+
+    nav ul li 
+    {
+        float: left;
+
+    }
+
+    nav ul li a 
+    {
+        border: none;
+        border-right: 1px solid rgba(0,0,0,0.3);
+        padding: .6rem 1rem;
+    }
+
+
+
+} /*end large */
