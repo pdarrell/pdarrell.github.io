@@ -1,0 +1,52 @@
+@media only screen and (min-width: 35em) 
+{
+
+    header h1 
+    {
+        font-size: 2rem;
+    }
+
+    header h2
+    {
+        font-size: 1.5rem;
+    }
+
+    header img 
+    {
+        width: auto;
+    }
+
+    nav 
+    {
+        text-align: left;
+    }
+
+    nav button
+    {
+        display: none;
+
+    }
+
+    nav ul li 
+    {
+        display: inline;
+        padding: 0;
+    }
+
+    nav ul li a 
+    {
+        display: inline-block;
+        padding: 0;
+        margin: .3rem 0 0 4%;
+        font-size: 1.3rem;
+        align-items: left;
+        justify-content: left;
+    }
+
+    nav ul.hide
+    {
+        display: block;
+    }
+
+    
+}

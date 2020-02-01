@@ -1,0 +1,165 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+body 
+{
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+header 
+{
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: .1rem;
+    text-align: left;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+header h1 
+{
+    font-size: 1.3rem;
+}
+
+header h2 
+{
+    font-size: 1rem;
+}
+
+header img 
+{
+    float: left;
+    width: 80px;
+}
+
+nav 
+{
+    font-size: 16px;
+}
+
+nav button 
+{
+    margin: .5rem 8%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+
+}
+
+nav ul 
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a 
+{
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    color: white;
+    font-size: 1.3rem;
+    padding: .5rem;
+    margin: .5rem 8%;
+}
+
+nav ul li a:hover 
+{
+    background-color: #001ac9;
+}
+
+nav ul li.active a
+{
+    background-color: #efff1c;
+    color: black;
+}
+
+nav ul.hide
+{
+    display: none;
+}
+
+main 
+{
+    padding: .8rem;
+    margin: .8rem;
+}
+
+main h1 
+{
+    padding: .8rem;
+    text-align: left;
+}
+
+main section 
+{
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+main section h2, h3 
+{
+    padding: 0 .8rem 0 .8rem;
+} 
+
+main article p
+{
+    padding: 0 .8rem .5rem .8rem;  
+}
+
+#weatherSummary
+{
+    background-color: #001ac9;
+    color: #fff;
+    padding: .5rem;
+    margin: .8rem;
+}
+
+footer 
+{
+    width: 100%;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: 1rem;
+}
+
+footer div 
+{
+    margin: 0;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+#headerWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+#navWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+#footerWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
