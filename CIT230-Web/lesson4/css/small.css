@@ -19,7 +19,6 @@ header
     padding: .1rem;
     text-align: left;
     display: flex;
-    align-items: left;
     justify-content: left;
 }
 
@@ -37,6 +36,7 @@ header img
 {
     float: left;
     width: 80px;
+    padding: 0 0 0 .8rem;
 }
 
 nav 
@@ -68,7 +68,7 @@ nav ul li a
     color: white;
     font-size: 1.3rem;
     padding: .5rem;
-    margin: .5rem 8%;
+    margin: .3rem 0 0 4%;
 }
 
 nav ul li a:hover 
@@ -95,7 +95,7 @@ main
 
 main h1 
 {
-    padding: .8rem;
+    padding: 0 .8rem 0 .8rem;
     text-align: left;
 }
 
