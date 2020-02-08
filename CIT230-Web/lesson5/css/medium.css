@@ -48,5 +48,14 @@
         display: block;
     }
 
+    img 
+    {
+        max-width: 800px;
+    }
+
+    #fivedayforecast 
+    {
+        display: block;
+    }
     
 }
