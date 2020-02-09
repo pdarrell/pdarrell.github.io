@@ -11,6 +11,7 @@ function toggleMenu()
 function contactCopyright()
 {
     document.getElementById("copyright").innerHTML += "Purnell Darrell &bull; " + getCurrentDate();
+    displayBanner();
 }
 
 function getCurrentYear()
@@ -84,4 +85,20 @@ function findDay(dayNumber)
         default:
             return dayNumber;
     }
+}
+
+function displayBanner()
+{
+    var date = new Date();
+    //check if Friday
+    if (date.getDay() == 5)
+    {
+        document.getElementById("banner").classList.add("showBanner");
+        document.getElementById("banner").classList.remove("hideBanner");
+    } else 
+    {
+        document.getElementById("banner").classList.add("hideBanner");
+        document.getElementById("banner").classList.remove("showBanner");
+    }
+
 }

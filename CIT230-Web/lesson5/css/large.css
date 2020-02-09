@@ -9,7 +9,7 @@
     
     main h1 
     {
-        padding: 0 1.8rem 0 1.8rem;
+        padding: 0 .8rem 0 .8rem;
         text-align: left;
     }
 
@@ -17,6 +17,11 @@
     {
         padding: 0 1.8rem 0 1.8rem;
     } 
+
+    .herodiv 
+    {
+        padding: 0 .8rem 0 .8rem;
+    }
 
     main article h2
     {
@@ -26,6 +31,11 @@
     main article p
     {
         padding: 0 1.8rem .5rem 1.8rem;  
+    }
+
+    #articleImg 
+    {
+        max-width: 40%;
     }
 
     #weatherSummary
