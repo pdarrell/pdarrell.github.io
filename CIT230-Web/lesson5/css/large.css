@@ -33,11 +33,6 @@
         padding: 0 1.8rem .5rem 1.8rem;  
     }
 
-    #articleImg 
-    {
-        max-width: 40%;
-    }
-
     #weatherSummary
     {
         background-color: #001ac9;

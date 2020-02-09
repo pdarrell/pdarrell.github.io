@@ -126,12 +126,13 @@
     {
         position: relative;
         float: right;
-        width: 40%;
+        width: 100%;
         top: 4rem;
     }
 
     main div section article p
     { 
+        position: relative;
         padding: 0 .8rem 0 .8rem;
     }
 
