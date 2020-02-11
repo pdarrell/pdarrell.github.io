@@ -200,6 +200,11 @@ main img
     padding: 0 1rem 0 1rem;
 }
 
+.forecast 
+{
+    display: none;
+}
+
 #fivedayforecast 
 {
     display: none;
