@@ -210,7 +210,7 @@ main img
     display: none;
 }
 
-#articleImg 
+.articleImg 
 {
     padding: 0 .8rem 0 .8rem;
 }

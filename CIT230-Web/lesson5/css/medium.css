@@ -112,32 +112,39 @@
         border: none;
     }
 
-    main div section article 
+    #articleSection
     {
-        position: relative;
         display: block;
         padding: 0;
         margin: 0;
     }
 
-    #articleSection
+    main div article 
     {
-        position: relative;
         display: flex;
-        flex-direction: row;
-    }
-    
-    #articleImg 
-    {
-        position: relative;
-        float: right;
-        top: 4rem;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
-    main div section article p
+    main div article p
     { 
-        position: relative;
+        display: block;
+        width: 45%;
         padding: 0 .8rem 0 .8rem;
+    }
+
+    .articleImg 
+    {
+        display: block;
+        width: 55%;
+        float: right;
+        padding: .8rem;
+    }
+
+    .articleImg img 
+    {
+        width: 100%;
     }
 
     .contactDiv 
