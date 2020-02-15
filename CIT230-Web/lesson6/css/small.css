@@ -248,7 +248,14 @@ main img
 {
     float: right;
     position: relative;
+    padding: 0 .8rem;
+    width: 50%;
 }
+
+.email
+ {
+    word-wrap: break-word;
+ } 
 
 .contactMap
 {
