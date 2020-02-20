@@ -1,0 +1,175 @@
+@media only screen and (min-width: 35em) 
+{
+
+    header h1 
+    {
+        font-size: 2rem;
+    }
+
+    header h2
+    {
+        font-size: 1.5rem;
+    }
+
+    header img 
+    {
+        width: auto;
+        padding: 0 0 0 .3rem;
+    }
+
+    nav 
+    {
+        text-align: left;
+    }
+
+    nav button
+    {
+        display: none;
+
+    }
+
+    nav ul 
+    {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 .8rem 0 .8rem;
+    }
+
+    nav ul li 
+    {
+        display: inline;
+        padding: .5rem  0 .5rem 0;
+        border-right: 1px solid #665959;
+    }
+
+    nav ul li a 
+    {
+        display: inline-block; 
+        padding: .5rem .5rem .5rem 0;
+        margin: 0;
+        font-size: 1.3rem;
+        justify-content: left;
+    }
+
+    nav ul.hide
+    {
+        display: block;
+    }
+
+    img 
+    {
+        max-width: 1024px;
+    }
+
+    #weatherSummary
+    {
+        width: 220px;
+    }
+
+    #weatherSummary h2
+    {
+        font-size: 1rem;
+    }
+
+    #weatherSummary p
+    { 
+        font-size: 1rem;
+        padding: 0 1rem 0 1rem;
+    }
+
+    #weatherSummary .leftspan
+    { 
+        font-size: 1rem;
+        padding: 0 0 0 1rem;
+    }
+
+    div h2 
+    {
+        padding: 0 .8rem 0.8rem;
+    }
+
+    .forecast 
+    {
+        display: block;
+    }
+
+    #fivedayforecast 
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    #fivedayforecast div 
+    {
+        border: 1px solid #93d2ea;
+        text-align: center;
+        margin: 0 .8rem 0.8rem;
+    }
+
+    #fivedayforecast h5 
+    {
+        background-color: #001ac9;
+        color: #fff;
+        padding: 0;
+    }
+
+    #fivedayforecast img 
+    {
+        border: none;
+    }
+
+    #articleSection
+    {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    main div article 
+    {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    main div article p
+    { 
+        display: block;
+        width: 45%;
+        padding: 0 .8rem 0 .8rem;
+    }
+
+    .articleImg 
+    {
+        display: block;
+        width: 55%;
+        float: right;
+        padding: .8rem;
+    }
+
+    .articleImg img 
+    {
+        width: 100%;
+    }
+
+    .contactDiv 
+    {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-flow: row;
+        width: 100%;
+        padding: 0 1rem 0 1.2rem;
+    }
+
+    .contactMap
+    {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0 0 0 .8rem;
+    }
+
+    
+}

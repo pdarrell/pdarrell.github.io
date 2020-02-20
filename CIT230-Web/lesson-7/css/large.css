@@ -1,0 +1,45 @@
+@media only screen and (min-width: 60em) 
+{
+    
+    header, nav, main, footer 
+    {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    
+    main h1 
+    {
+        padding: 0 .8rem 0 .8rem;
+        text-align: left;
+    }
+
+    main section h2, h3 
+    {
+        padding: 0 1.8rem 0 1.8rem;
+    } 
+
+    .herodiv 
+    {
+        padding: 0 .8rem 0 .8rem;
+    }
+
+    main article h2
+    {
+        padding: 0 1.8rem .5rem 1.8rem;  
+    }
+
+    main article p
+    {
+        padding: 0 1.8rem .5rem 1.8rem;  
+    }
+
+    #weatherSummary
+    {
+        background-color: #001ac9;
+        color: #fff;
+        padding: .5rem;
+        margin: 1.8rem;
+    }
+
+
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us"> 
+    <head>
+        <title>Lazy Load Images</title>
+        <meta name="description" content="Lazy Load Images">
+        <meta lang="en-us" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/normalize.css" rel="stylesheet">
+        <link href="./css/small.css" rel="stylesheet">
+        <link href="./css/medium.css" rel="stylesheet">
+        <link href="./css/large.css" rel="stylesheet">
+        <script src="./js/home.js"></script>
+    </head>
+    <body onload="lazyload()">
+       <main>
+            <h1>Lazy Load Images</h1>
+            <picture>
+                <img alt="blue and white painting" src="./images/300x400placeholder.jpg" data-src="./images/300x400blue-and-white-abstract-painting-3607083.jpg">
+            </picture>
+            <picture>
+                <img alt="child playing" src="./images/300x400placeholder.jpg" data-src="./images/300x400child-in-white-long-sleeve-top-and-dungaree-trousers-playing-3661353.jpg">
+            </picture>
+            <picture>
+                <img alt="gray and black marble" src="./images/300x400placeholder.jpg" data-src="./images/300x400gray-and-black-marble-slab-1451474.jpg">
+            </picture>
+            <picture>
+                <img alt="couple on road" src="./images/300x400placeholder.jpg" data-src="./images/300x400photo-of-couple-standing-on-road-3101548.jpg">
+            </picture>
+            <picture>
+                <img alt="person inside cave" src="./images/300x400placeholder.jpg" data-src="./images/300x400photo-of-person-inside-cave-2812193.jpg">
+            </picture>
+            <picture>
+                <img alt="child sitting on bed" src="./images/300x400placeholder.jpg" data-src="./images/300x400woman-and-child-sitting-on-fur-covered-bed-1257099.jpg">
+            </picture>
+        </main>
+    </body onselect="lazyload()"
+</html>
