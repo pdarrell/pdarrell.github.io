@@ -4,42 +4,51 @@
 
 function lazyload()
 {
-    const imgOptions = {
-        threshold: [0.0, 0.25, 0.5, 0.75, 1.0],
-        root: "main"
-    };
+    
 
+    observe();
 
-    let imagesToLoad = document.querySelectorAll('img[data-src]');
-    const loadImages = (image) => {
-    image.setAttribute('src', image.getAttribute('data-src'));
-    image.onload = () => {
-        image.removeAttribute('data-src');
-    };
-    };
-
-    imagesToLoad.forEach((img) => {
+    /*imagesToLoad.forEach((img) => {
         loadImages(img);
     });
-
+*/
     
 }
 
-if('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((items, observer) => {
-        items.forEach((item) => {
-            if(item.isIntersecting) {
-                loadImages(item.target);
-                observer.unobserve(item.target);
-            }
-        });
-    }, imgOptions);
+function observe()
+{
+    if('IntersectionObserver' in window) {
+        const imgOptions = {
+            threshold: 1.0,
+            root: null
+        };
+    
+    
+        let imagesToLoad = document.querySelectorAll('img[data-src]');
+        const loadImages = (image) => {
+        image.setAttribute('src', image.getAttribute('data-src'));
+        image.onload = () => {
+            image.removeAttribute('data-src');
+        };
+        };
+        
+        let callback = (items, observer) => {
+            items.forEach((item) => {
+                if(item.isIntersecting) {
+                    loadImages(item.target);
+                    observer.unobserve(item.target);
+                }
+            });
+        }
 
-    imagesToLoad.forEach((img) => {
-        observer.observe(img);
-    });
-} else {
-    imagesToLoad.forEach((img) => {
-        loadImages(img);
-    });
+        const observer = new IntersectionObserver(callback, imgOptions);
+
+        imagesToLoad.forEach((img) => {
+            observer.observe(img);
+        });
+    } else {
+        imagesToLoad.forEach((img) => {
+            loadImages(img);
+        });
+    }
 }

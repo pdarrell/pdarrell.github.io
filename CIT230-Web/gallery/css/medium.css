@@ -56,7 +56,7 @@
         display: block;
     }
 
-    main div
+    main section
     {
         grid-template-columns: 1fr 1fr;
     }

@@ -7,10 +7,18 @@
         margin: 0 auto;
     }
     
-    main div
+    main section
     {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
+    footer 
+    {
+        width: 100%;
+        font-family: 'Barlow', sans-serif;
+        font-size: 16px;
+        padding: 1rem .8rem 1rem .8rem;
+        margin: .5rem 0 0 0;
+    }
 
 }

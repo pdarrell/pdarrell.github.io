@@ -113,37 +113,35 @@ main h1
     text-align: left;
 }
 
-main div
+main section
 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: .5em;
-    padding: 0 .8rem 0 .8rem;
+    grid-gap: .8em;
+    padding: 0 1rem 0 1rem;
 }
 
-main div picture
+main section figure
 {
-    padding: 0;
+    padding: 0 0 .5rem 0;
     margin: 0;
 
 }
 
-main div picture .box
+main section figure.box
 {
-    border: 1px solid #000;
-    box-shadow: #000;
+    box-shadow: 0 0 15px #000;
 }
 
-main div picture img 
+main section figure img 
 {
     width: 100%;
 }
 
-main div picture caption 
+main section figure figcaption 
 {
-    text-align: center;
     padding: .5rem;
-    margin: .5rem;
+    margin: 0;
 }
 
 .contactDiv 
@@ -191,8 +189,8 @@ footer
     width: 100%;
     font-family: 'Barlow', sans-serif;
     font-size: 16px;
-    padding: 1rem;
-    margin: .5rem;
+    padding: 1rem .8rem 1rem .8rem;
+    margin: .5rem 0 0 0;
 }
 
 footer div 

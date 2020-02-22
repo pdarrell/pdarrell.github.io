@@ -11,7 +11,7 @@ function toggleMenu()
 function contactCopyright()
 {
     document.getElementById("copyright").innerHTML += "Purnell Darrell &bull; " + getCurrentDate();
-    displayBanner();
+    //displayBanner();
 }
 
 function getCurrentYear()
@@ -104,51 +104,54 @@ function displayBanner()
 }
 
 /*
-Lazy laoding with Intersetion Observer API
+Lazy loading with Intersetion Observer API
 */
 
-
+function lazyload()
+{
+    observe();
     
+}
 
+function observe()
+{
     if('IntersectionObserver' in window) {
-        document.addEventListener("scroll", observer, false);
-    
         const imgOptions = {
-            threshold: 1.0,
-            root: document.querySelector('main')
+            threshold: 0.5,
+            root: null
         };
 
-        let imagesToLoad = document.querySelectorAll('img[data-src]');
 
+        let imagesToLoad = document.querySelectorAll('img[data-src]');
         const loadImages = (image) => {
             image.setAttribute('src', image.getAttribute('data-src'));
             image.onload = () => {
                 image.removeAttribute('data-src');
             };
         };
-
-        const observerCallback = (observer) => {
+        
+        let callback = (items, observer) => {
             items.forEach((item) => {
                 if(item.isIntersecting) {
                     loadImages(item.target);
                     observer.unobserve(item.target);
                 }
             });
-
-            imagesToLoad.forEach((img) => {
-                observer.observe(img);
-            });
         }
 
-        const observer = new IntersectionObserver(items, observerCallback
-            , imgOptions); 
-         
-        
+        const observer = new IntersectionObserver(callback, imgOptions);
+
+        imagesToLoad.forEach((img) => {
+            observer.observe(img);
+        });
     } else {
         imagesToLoad.forEach((img) => {
             loadImages(img);
         });
     }
+
+}
+
 
 
 
