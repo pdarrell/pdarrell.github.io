@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us"> 
+    <head>
+        <title>Weather Gallery: PD Weather Report</title>
+        <meta name="description" content="Weather Gallery">
+        <meta lang="en-us" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/normalize.css" rel="stylesheet">
+        <link href="./css/small.css" rel="stylesheet">
+        <link href="./css/medium.css" rel="stylesheet">
+        <link href="./css/large.css" rel="stylesheet">
+        <script src="./js/home.js"></script>
+    </head>
+    <body onload="contactCopyright();">
+        <div id="headerWrapper">
+            <header>
+                <img alt="logo" src="./images/iconfinder_thermometer-celsius-degrees-temperature-weather_3856401.png" class="imgSize">
+                <div>
+                    <H1>PD Consulting Weather Report</H1>
+                    <h2>Weather you can live your life by</h2>
+                </div>
+            </header>
+        </div>
+        <div id="navWrapper">
+            <nav class="clearfix">
+                <button onclick="toggleMenu()">&#9776; Menu</button>
+                <ul id="primaryNav" class="hide">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Preston</a></li>
+                    <li><a href="#">Soda Springs</a></li>
+                    <li><a href="#">Fish Haven</a></li>
+                    <li><a href="#">Storm Center</a></li>
+                    <li class="active"><a href="#">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <H1>Weather Gallery</H1>
+            <div>
+                <picture class="box">
+                    <img alt="blue and white painting" src="./images/350_placeholder.jpg" data-src="./images/lightning-and-gray-clouds-1162251_350.jpg">
+                    <caption>Lightning and gray clouds</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="child playing" src="./images/350_placeholder.jpg" data-src="./images/light-sea-dawn-landscape-33545_350.jpg">
+                    <caption>Light sea dawn landscape</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="gray and black marble" src="./images/350_placeholder.jpg" data-src="./images/island-during-golden-hour-and-upcoming-storm-1118873_350.jpg">
+                    <caption>Island golden hour and upcoming storm</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="couple on road" src="./images/350_placeholder.jpg" data-src="./images/clouds-1431822_350.jpg">
+                    <caption>Clouds</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="person inside cave" src="./images/350_placeholder.jpg" data-src="./images/brown-leaf-trees-on-forest-589816_350.jpg">
+                    <caption>Brown leaf tree on forest</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="child sitting on bed" src="./images/350_placeholder.jpg" data-src="./images/blur-cars-dew-drops-125510_350.jpg">
+                    <caption>Blur cars dew drops</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="couple on road" src="./images/350_placeholder.jpg" data-src="./images/beautiful-clouds-cloudy-dramatic-209831_350.jpg">
+                    <caption>Beautiful clouds</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="person inside cave" src="./images/350_placeholder.jpg" data-src="./images/agriculture-clouds-colors-countryside-108941_350.jpg">
+                    <caption>Agriculture clouds countryside</caption>
+                </picture>
+                <picture class="box">
+                    <img alt="child sitting on bed" src="./images/350_placeholder.jpg" data-src="./images/afterglow-background-beautiful-branches-552791_350.jpg">
+                    <caption>Afterglow background with beautiful branches</caption>
+                </picture>
+            </div>
+        </main>
+        <div id="footerWrapper">
+            <footer>
+                <div>
+                    <div id="copyright">&copy; </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: [
+                    'Barlow',
+                    'Source Sans Pro'
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>
