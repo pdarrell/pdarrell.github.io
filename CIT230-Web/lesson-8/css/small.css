@@ -120,146 +120,48 @@ main h1
     text-align: left;
 }
 
-main div 
+main p 
 {
-    padding: 0;
-    margin: 0;
-}
-
-main div section 
-{
-    display: block;
-    padding: 0;
-    margin: 0;
+    padding: 0 .8rem 0 .8rem;
     text-align: left;
 }
 
-main div section h2, h3 
+main form label 
 {
-    padding: 0 .8rem 0 .8rem;
-} 
+    display: block;
+    padding: 0 .8rem .8rem .8rem;
+    text-align: left;
+}
 
-main div section article 
+main form label input, select, textarea 
 {
     display: block;
     padding: 0;
     margin: 0;
 }
 
-main div h2
+main form label p 
 {
-    padding: 0 .8rem 0 .8rem;  
+    display: inline;
+    padding: 0;
+    margin: 0;
 }
 
-main div article p
-{
-    padding: 0 .8rem 0 .8rem;  
-}
-
-.herodiv 
-{
-    position: relative;
-    width: 100%;
-}
-
-.heroImg 
+main form label label
 {
     padding: 0;
-    width: 100%;
-    height: auto;
 }
 
-main img 
+main form label label input[type=radio] 
 {
-    width: 100%;
-    height: auto;
-    border: 1px solid #000;
-}
-
-#weatherSummary
-{
-    position: absolute;
-    background-color: rgba(0, 26, 201, 0.4);
-    color: #fff;
-    padding: .2rem;
-    margin: .7rem;
-    width: 55%;
-    height: auto;
-    float: left;
-    top: -3px;
-    line-height: .8rem;
-}
-
-#weatherSummary h2
-{
-    font-size: .9rem;
-}
-
-#weatherSummary p
-{ 
-    font-size: .8rem;
-    padding: 0 1rem 0 1rem;
-}
-
-#weatherSummary .leftspan
-{ 
-    font-size: .8rem;
-    padding: 0 0 0 1rem;
-}
-
-.forecast 
-{
-    display: none;
-}
-
-#fivedayforecast 
-{
-    display: none;
-}
-
-.articleImg 
-{
+    display: inline;
     padding: 0 .8rem 0 .8rem;
+    margin: 0;
 }
 
-.contactDiv 
+main form label input[type=submit] 
 {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 0 1rem 0 1.2rem;
-}
-
-.contactHeading 
-{
-    font-weight: bold;
-    font-size: 1.3rem;
-    padding: 0;
-}
-
-.contactBody 
-{
-    padding: 0;
-    line-height: 125%;
-}
-
-.floatRight
-{
-    float: right;
-    position: relative;
-    padding: 0 .8rem;
-    width: 50%;
-}
-
-.email
- {
-    word-wrap: break-word;
- } 
-
-.contactMap
-{
-    display: none;
+    padding: .3rem .8rem;
 }
 
 footer 
