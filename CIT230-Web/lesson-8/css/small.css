@@ -140,13 +140,6 @@ main form label input, select, textarea
     margin: 0;
 }
 
-main form label div 
-{
-    display: inline;
-    padding: 0;
-    margin: 0;
-}
-
 main form div
 {
     padding: 0 .8rem .8rem .8rem;
