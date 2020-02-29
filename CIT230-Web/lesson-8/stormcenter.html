@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us"> 
+    <head>
+        <title>Storm Center: PD Weather Report</title>
+        <meta name="description" content="Storm Center page">
+        <meta lang="en-us" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/normalize.css" rel="stylesheet">
+        <link href="./css/small.css" rel="stylesheet">
+        <link href="./css/medium.css" rel="stylesheet">
+        <link href="./css/large.css" rel="stylesheet">
+        <script src="./js/home.js"></script>
+    </head>
+    <body onload="contactCopyright(); calculateWindchill(document.getElementById('highTemp').textContent, document.getElementById('windspeed').textContent);">
+        <div id="headerWrapper">
+            <header>
+                <img alt="logo" src="./images/iconfinder_thermometer-celsius-degrees-temperature-weather_3856401.png" class="imgSize">
+                <div>
+                    <H1>PD Consulting Weather Report</H1>
+                    <h2>Weather you can live your life by</h2>
+                </div>
+            </header>
+        </div>
+        <div id="navWrapper">
+            <nav class="clearfix">
+                <button onclick="toggleMenu()">&#9776; Menu</button>
+                <ul id="primaryNav" class="hide">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Preston</a></li>
+                    <li><a href="#">Soda Springs</a></li>
+                    <li><a href="#">Fish Haven</a></li>
+                    <li class="active"><a href="#">Storm Center</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <H1>Storm Center</H1>
+            <p>Fill out the form below to report a storm or any unusual weather activity.</p>
+            <form method="get" action="./thanks.html">
+                <label for="fullname">
+                    Full name
+                    <input id="fullname" type="text" name="full-name" required="required" pattern="[A-Za-z]{5,}" minlength="5">
+                </label>
+                <label for="email">
+                    Email
+                    <input id="email" type="email" name="email" placeholder="username@example.com">
+                </label>
+                <label for="phonenumber">
+                    Phone number
+                    <input id="phonenumber" type="tel" name="phone-number" required="required" minlength="10" maxlength="14">
+                </label>
+                <label for="zipcode">
+                    Zipcode
+                    <input id="zipcode" type="number" name="zip-code" required="required" minlength="5" maxlength="5">
+                </label>
+                <label for="stormdate">
+                    Storm date
+                    <input id="stormdate" type="date" name="storm-date">
+                </label>
+                <label for="stormtype">
+                    Storm type
+                    <input id="stormtype" type="text" name="storm-type" list="stormtypelist">
+                </label>
+                <datalist id="stormtypelist">
+                    <option>Flash Flood</option>
+                    <option>Hail</option>
+                    <option>Hurricane</option>
+                    <option>Thunderstorm</option>
+                    <option>Tornado</option>
+                </datalist>
+                <label for="stormseverity" id="stormseveritylabel">
+                    Storm severity (1 - 10)
+                    <input id="stormseverity" type="range" name="storm-severity" min="1" max="10" onchange="updateStormSeverityLabel()">
+                    <p id="rangevalue"></p>
+                </label>
+                <label for="stormregion">
+                    Storm region
+                    <select id="stormregion" name="storm-region">
+                        <option disabled selected>Select Region...</option>
+                        <option value="1">Preston</option>
+                        <option value="2">Soda Springs</option>
+                        <option value="3">Fish Haven</option>
+                    </select>
+                </label>
+                <label>
+                    User in-danger level
+                    <label for="userdangerlevelyes">
+                        <input id="userdangerlevelyes" type="radio" name="user-danger-level" >
+                        Yes
+                    </label>
+                    <label for="userdangerlevelmaybe">
+                        <input id="userdangerlevelmaybe" type="radio" name="user-danger-level">
+                        Maybe
+                    </label>
+                    <label for="userdangerlevelno">
+                        <input id="userdangerlevelno" type="radio" name="user-danger-level">
+                        No
+                    </label>
+                </label>
+                <label for="comment">
+                    Additional information
+                    <textarea id="comment" name="additional-information"></textarea>
+                </label>
+                <label for="formsubmit">
+                    Submit
+                    <input id="formsubmit" type="submit" name="form-submit">
+                </label>
+            </form>
+        </main>
+        <div id="footerWrapper">
+            <footer>
+                <div>
+                    <div id="copyright">&copy; </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: [
+                    'Barlow',
+                    'Source Sans Pro'
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>
