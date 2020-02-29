@@ -52,7 +52,7 @@
                 </label>
                 <label for="zipcode">
                     Zipcode
-                    <input id="zipcode" type="number" name="zip-code" required="required" minlength="5" maxlength="5">
+                    <input id="zipcode" type="number" name="zip-code" required="required">
                 </label>
                 <label for="stormdate">
                     Storm date
@@ -72,7 +72,7 @@
                 <label for="stormseverity" id="stormseveritylabel">
                     Storm severity (1 - 10)
                     <input id="stormseverity" type="range" name="storm-severity" min="1" max="10" onchange="updateStormSeverityLabel()">
-                    <p id="rangevalue"></p>
+                    <div id="rangevalue"></div>
                 </label>
                 <label for="stormregion">
                     Storm region
@@ -83,21 +83,21 @@
                         <option value="3">Fish Haven</option>
                     </select>
                 </label>
-                <label>
+                <div>
                     User in-danger level
                     <label for="userdangerlevelyes">
-                        <input id="userdangerlevelyes" type="radio" name="user-danger-level" >
+                        <input id="userdangerlevelyes" type="radio" name="user-danger-level" value="yes">
                         Yes
-                    </label>
+                    </label>   
                     <label for="userdangerlevelmaybe">
-                        <input id="userdangerlevelmaybe" type="radio" name="user-danger-level">
+                        <input id="userdangerlevelmaybe" type="radio" name="user-danger-level" value="maybe">
                         Maybe
-                    </label>
+                    </label>   
                     <label for="userdangerlevelno">
-                        <input id="userdangerlevelno" type="radio" name="user-danger-level">
+                        <input id="userdangerlevelno" type="radio" name="user-danger-level" value="no">
                         No
                     </label>
-                </label>
+                </div>
                 <label for="comment">
                     Additional information
                     <textarea id="comment" name="additional-information"></textarea>

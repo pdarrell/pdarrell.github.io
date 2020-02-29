@@ -105,5 +105,5 @@ function displayBanner()
 
 function updateStormSeverityLabel()
 {
-   document.getElementById("rangevalue").innerText = "value: " + document.getElementById("stormseverity").value;
+   document.getElementById("rangevalue").innerHTML = "value: " + document.getElementById("stormseverity").value;
 }

@@ -140,19 +140,24 @@ main form label input, select, textarea
     margin: 0;
 }
 
-main form label p 
+main form label div 
 {
     display: inline;
     padding: 0;
     margin: 0;
 }
 
-main form label label
+main form div
+{
+    padding: 0 .8rem .8rem .8rem;
+}
+
+main form div label
 {
     padding: 0;
 }
 
-main form label label input[type=radio] 
+main form div label input[type=radio] 
 {
     display: inline;
     padding: 0 .8rem 0 .8rem;
