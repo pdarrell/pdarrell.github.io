@@ -157,7 +157,14 @@ main form div label input[type=radio]
     margin: 0;
 }
 
-main form label input[type=submit] 
+main form input 
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+main form input[type=submit] 
 {
     padding: .3rem .8rem;
 }
