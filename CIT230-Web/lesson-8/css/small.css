@@ -167,6 +167,8 @@ main form input
 main form input[type=submit] 
 {
     padding: .3rem .8rem;
+    background-color: #001ac9;
+    color: #fff;
 }
 
 footer 

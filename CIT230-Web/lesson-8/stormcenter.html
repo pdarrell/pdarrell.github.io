@@ -40,7 +40,7 @@
             <form method="get" action="./thanks.html">
                 <label for="fullname">
                     Full name
-                    <input id="fullname" type="text" name="full-name" required="required" pattern="[A-Za-z]{5,}" minlength="5">
+                    <input id="fullname" type="text" name="full-name" required="required" pattern="[A-Za-z ]{5,}" minlength="5" placeholder="required">
                 </label>
                 <label for="email">
                     Email
@@ -48,11 +48,11 @@
                 </label>
                 <label for="phonenumber">
                     Phone number
-                    <input id="phonenumber" type="tel" name="phone-number" required="required" minlength="10" maxlength="14">
+                    <input id="phonenumber" type="tel" name="phone-number" required="required" minlength="10" maxlength="14" placeholder="required">
                 </label>
                 <label for="zipcode">
                     Zipcode
-                    <input id="zipcode" type="number" name="zip-code" required="required">
+                    <input id="zipcode" type="number" name="zip-code" required="required" placeholder="required">
                 </label>
                 <label for="stormdate">
                     Storm date
@@ -103,7 +103,7 @@
                     <textarea id="comment" name="additional-information"></textarea>
                 </label>
                 <div>
-                    <input id="formsubmit" type="submit" name="form-submit" value="Submit">
+                    <input id="formsubmit" type="submit" name="form-submit" value="Report Storm">
                 </div>
             </form>
         </main>
