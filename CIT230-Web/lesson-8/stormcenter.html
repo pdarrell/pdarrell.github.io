@@ -38,27 +38,27 @@
             <H1>Storm Center</H1>
             <p>Fill out the form below to report a storm or any unusual weather activity.</p>
             <form method="get" action="./thanks.html">
-                <label for="fullname">
+                <label>
                     Full name
-                    <input id="fullname" type="text" name="full-name" required="required" pattern="[A-Za-z ]{5,}" minlength="5" placeholder="required">
+                    <input id="fullname" type="text" name="full-name" required="required" pattern="[A-Za-z ]{5,}" minlength="5">
                 </label>
-                <label for="email">
+                <label>
                     Email
                     <input id="email" type="email" name="email" placeholder="username@example.com">
                 </label>
-                <label for="phonenumber">
+                <label>
                     Phone number
-                    <input id="phonenumber" type="tel" name="phone-number" required="required" minlength="10" maxlength="14" placeholder="required">
+                    <input id="phonenumber" type="tel" name="phone-number" required="required" minlength="10" maxlength="14">
                 </label>
-                <label for="zipcode">
+                <label>
                     Zipcode
-                    <input id="zipcode" type="number" name="zip-code" required="required" placeholder="required">
+                    <input id="zipcode" type="number" name="zip-code" required="required">
                 </label>
-                <label for="stormdate">
+                <label>
                     Storm date
                     <input id="stormdate" type="date" name="storm-date">
                 </label>
-                <label for="stormtype">
+                <label>
                     Storm type
                     <input id="stormtype" type="text" name="storm-type" list="stormtypelist">
                 </label>
@@ -69,12 +69,12 @@
                     <option>Thunderstorm</option>
                     <option>Tornado</option>
                 </datalist>
-                <label for="stormseverity" id="stormseveritylabel">
+                <label id="stormseveritylabel">
                     Storm severity (1 - 10)
                     <input id="stormseverity" type="range" name="storm-severity" min="1" max="10" onchange="updateStormSeverityLabel()">
                     <span id="rangevalue"></span>
                 </label>
-                <label for="stormregion">
+                <label>
                     Storm region
                     <select id="stormregion" name="storm-region">
                         <option disabled selected>Select Region...</option>
@@ -85,20 +85,20 @@
                 </label>
                 <div>
                     User in-danger level
-                    <label for="userdangerlevelyes">
-                        <input id="userdangerlevelyes" type="radio" name="user-danger-level" value="yes">
+                    <label>
+                        <input id="userdangerlevelyes" type="radio" name="user-danger-level" value="yes" class="indanger">
                         Yes
                     </label>   
-                    <label for="userdangerlevelmaybe">
-                        <input id="userdangerlevelmaybe" type="radio" name="user-danger-level" value="maybe">
+                    <label>
+                        <input id="userdangerlevelmaybe" type="radio" name="user-danger-level" value="maybe" class="indanger">
                         Maybe
                     </label>   
-                    <label for="userdangerlevelno">
-                        <input id="userdangerlevelno" type="radio" name="user-danger-level" value="no">
+                    <label>
+                        <input id="userdangerlevelno" type="radio" name="user-danger-level" value="no" class="indanger">
                         No
                     </label>
                 </div>
-                <label for="comment">
+                <label>
                     Additional information
                     <textarea id="comment" name="additional-information"></textarea>
                 </label>

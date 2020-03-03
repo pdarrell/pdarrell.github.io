@@ -107,10 +107,11 @@ nav ul.hide
     display: none;
 }
 
-main 
+main form
 {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     
 }
 
@@ -129,7 +130,7 @@ main p
 main form label 
 {
     display: block;
-    padding: 0 .8rem .8rem .8rem;
+    padding: .8rem .8rem 0 .8rem;
     text-align: left;
 }
 
@@ -137,12 +138,28 @@ main form label input, select, textarea
 {
     display: block;
     padding: 0;
-    margin: 0;
+    margin: 0;   
+    height: 44px;
+}
+
+main form label textarea 
+{
+    height: 150px;
+}
+
+main form label input:required
+{
+    border: 1px dashed red;
+}
+
+main form label input:valid
+{
+    border: 1px solid green;
 }
 
 main form div
 {
-    padding: 0 .8rem .8rem .8rem;
+    padding: .8rem .8rem 0 .8rem;
 }
 
 main form div label
@@ -153,8 +170,13 @@ main form div label
 main form div label input[type=radio] 
 {
     display: inline;
-    padding: 0 .8rem 0 .8rem;
-    margin: 0;
+    padding: 0;
+    margin: 0 .8rem 0 .8rem;
+}
+
+main form div label input[type=radio].indanger
+{
+    height: auto;
 }
 
 main form input 
@@ -166,7 +188,8 @@ main form input
 
 main form input[type=submit] 
 {
-    padding: .3rem .8rem;
+    padding: .8rem;
+    margin: .8rem 0 .8rem 0;
     background-color: #001ac9;
     color: #fff;
 }
