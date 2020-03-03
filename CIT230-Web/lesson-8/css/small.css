@@ -149,12 +149,12 @@ main form label textarea
 
 main form label input:required
 {
-    border: 1px dashed red;
+    border: 2px dashed red;
 }
 
 main form label input:valid
 {
-    border: 1px solid green;
+    border: 2px solid green;
 }
 
 main form div
