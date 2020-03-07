@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us"> 
+    <head>
+        <title>Home: PD Weather Report</title>
+        <meta name="description" content="Home PD Weather Report page">
+        <meta lang="en-us" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/normalize.css" rel="stylesheet">
+        <link href="./css/small.css" rel="stylesheet">
+        <link href="./css/medium.css" rel="stylesheet">
+        <link href="./css/large.css" rel="stylesheet">
+        <script src="./js/home.js"></script>
+    </head>
+    <body onload="contactCopyright(); getTowns();">
+        <div id="headerWrapper">
+            <header>
+                <img alt="logo" src="./images/iconfinder_thermometer-celsius-degrees-temperature-weather_3856401.png" class="imgSize">
+                <div>
+                    <H1>PD Consulting Weather Report</H1>
+                    <h2>Weather you can live your life by</h2>
+                </div>
+            </header>
+        </div>
+        <div id="navWrapper">
+            <nav class="clearfix">
+                <button onclick="toggleMenu()">&#9776; Menu</button>
+                <ul id="primaryNav" class="hide">
+                    <li class="active"><a href="/lesson-9/index.html">Home</a></li>
+                    <li><a href="/lesson6/preston.html">Preston</a></li>
+                    <li><a href="#">Soda Springs</a></li>
+                    <li><a href="#">Fish Haven</a></li>
+                    <li><a href="/lesson-8/stormcenter.html">Storm Center</a></li>
+                    <li><a href="/gallery/gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <H1>Home</H1>
+            <div class="towns">
+                
+            </div>
+        </main>
+        <div id="footerWrapper">
+            <footer>
+                <div>
+                    <div id="copyright">&copy; </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: [
+                    'Barlow',
+                    'Source Sans Pro'
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>

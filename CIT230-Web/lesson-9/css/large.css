@@ -1,0 +1,30 @@
+@media only screen and (min-width: 60em) 
+{
+    
+    header, nav, main, footer 
+    {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    
+    main div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    main h1 
+    {
+        padding: 0 .8rem 0 .8rem;
+        text-align: left;
+    }
+
+    main section img
+    {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    
+
+}
