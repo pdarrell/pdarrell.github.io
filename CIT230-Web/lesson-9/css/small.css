@@ -131,7 +131,12 @@ main section
     border: 1px solid #001ac9;
 }
 
-main section h2 
+main section div 
+{
+    background-color: #efff1c;
+}
+
+main section div h2 
 {
     font-family: 'Barlow', sans-serif;
     font-size: 2rem;
@@ -140,14 +145,14 @@ main section h2
     line-height: 1rem;
 }
 
-main section h3 
+main section div h3 
 {
     padding: 0;
     margin: .7rem .8rem .8rem .8rem;
     line-height: 1rem;
 }
 
-main section h2, h3, p 
+main section div h2, h3, p 
 {
     text-align: center;
 }

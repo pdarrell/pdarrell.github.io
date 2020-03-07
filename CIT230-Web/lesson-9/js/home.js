@@ -18,26 +18,29 @@ fetch(requestURL)
             townName == "Soda Springs")
         {
             let townSection = document.createElement('section');
-            let h2 = document.createElement('h2');
+            let textdiv = document.createElement('div');
             
+            let h2 = document.createElement('h2');
             h2.textContent = towns[i].name;
-            townSection.appendChild(h2);
+            textdiv.appendChild(h2);
             
             let h3 = document.createElement('h3');
             h3.textContent = towns[i].motto;
-            townSection.appendChild(h3);
+            textdiv.appendChild(h3);
 
             let founded = document.createElement('p');
             founded.textContent = 'Year Founded: ' + towns[i].yearFounded;
-            townSection.appendChild(founded);
+            textdiv.appendChild(founded);
 
             let population = document.createElement('p');
             population.textContent = 'Population: '+ towns[i].currentPopulation;
-            townSection.appendChild(population);
+            textdiv.appendChild(population);
 
             let rainfall = document.createElement('p');
             rainfall.textContent = 'Annual Rainfall: '+ towns[i].averageRainfall;
-            townSection.appendChild(rainfall);
+            textdiv.appendChild(rainfall);
+
+            townSection.appendChild(textdiv);
 
             let image = document.createElement('img');
             image.setAttribute('src', './images/' + towns[i].photo);

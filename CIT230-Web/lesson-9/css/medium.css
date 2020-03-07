@@ -67,29 +67,34 @@
         grid-template-columns: 1fr;
     }
     
+    main section 
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    main section div
+    {
+        width: 50%;
+    }
+
+    main section div h2, h3, p 
+    {
+        display: block;
+    } 
+
     main section img
     {
-        width: 256px;
+        position: relative;
+        width: 320px;
         margin: .8rem;
     }
     
-    main section:nth-child(1) img
+    main section:nth-child(odd)
     {
-        float: left;
-    }
-
-    
-
-    main section:nth-child(2) img
-    {
-        float: right;
-    }
-
-    
-
-    main section:nth-child(3) img
-    {
-        float: left;
+        
+        flex-direction: row-reverse;
     }
 
     

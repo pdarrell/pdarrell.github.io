@@ -13,6 +13,18 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 
+    main section 
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    main section div
+    {
+        width: 90%;
+        display: block;
+    }
+
     main h1 
     {
         padding: 0 .8rem 0 .8rem;
