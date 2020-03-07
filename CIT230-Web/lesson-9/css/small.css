@@ -126,7 +126,6 @@ main section
 {
     display: block;
     text-align: center;
-    flex: 1fr;
     background-color: #efff1c;
     margin: .8rem;
     border: 1px solid #001ac9;
