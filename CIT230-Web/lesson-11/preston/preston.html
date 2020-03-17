@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us"> 
+    <head>
+        <title>Preston: PD Consulting Weather Report</title>
+        <meta name="description" content="Preston Town page">
+        <meta lang="en-us" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/normalize.css" rel="stylesheet">
+        <link href="./css/small.css" rel="stylesheet">
+        <link href="./css/medium.css" rel="stylesheet">
+        <link href="./css/large.css" rel="stylesheet">
+        <script src="./js/home.js"></script>
+        <script src="./js/windchill.js"></script>
+    </head>
+    <body onload="contactCopyright();">
+        <div id="banner" class="hideBanner">
+            <p>Preston Pancakes in the Park! 9:00 a.m. Saturday at the city park pavilion.</p>
+        </div>
+        <div id="headerWrapper">
+            <header>
+                <img alt="logo" src="./images/iconfinder_thermometer-celsius-degrees-temperature-weather_3856401.png" class="imgSize">
+                <div>
+                    <H1>PD Consulting Weather Report</H1>
+                    <h2>Weather you can live your life by</h2>
+                </div>
+            </header>
+        </div>
+        <div id="navWrapper">
+            <nav class="clearfix">
+                <button onclick="toggleMenu()">&#9776; Menu</button>
+                <ul id="primaryNav" class="hide">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active"><a href="../preston/preston.html">Preston</a></li>
+                    <li><a href="#">Soda Springs</a></li>
+                    <li><a href="#">Fish Haven</a></li>
+                    <li><a href="../stormcenter/stormcenter.html">Storm Center</a></li>
+                    <li><a href="../gallery/gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <H1>Preston</H1>
+            <div class="herodiv">
+                <div class="heroImg">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/600_small_cit230_image_franklinoriginal.jpg">
+                        <source media="(max-width: 1024px)" srcset="./images/1024_medium_cit230_image_franklinoriginal.jpg">
+                        <source media="(max-width: 1280px)" srcset="./images/1280_large_cit230_image_franklinoriginal.jpg">
+                        <img src="./images/1280_large_cit230_image_franklinoriginal.jpg" alt="hero image"> 
+                    </picture>       
+                </div>
+                <section id="weatherSummary">
+                    <h2>Weather Summary</h2>
+                    <p>Currently: <span id="currentDescription"></span></p>
+                    <p>High: <span id="highTemp">45</span>&deg; F</p>
+                    <p>Wind Chill: <span id="windchill"></span></p>
+                    <p>Humidity: <span id="humidity"></span></p>
+                    <p>Wind Speed: <span id="windspeed"></span> mph</p>
+                </section>
+            </div>
+            <div class="forecast">
+                <h2>Five Day Forecast</h2>
+                <section id="fivedayforecast">
+                    
+                </section>
+            </div>
+            <div> 
+                <h2>
+                    In History
+                </h2>
+                <article> 
+                    <p>
+                        On this day in history the first (you find something cool in history and complete this paragraph. Ryiam velit odio ut et ac tristique, dictumst, odio. Velit a ac, integer sociis placerat rhoncus nec purus augue a odio nunc. Odio nisi, parturient placerat cum in, nunc diam quis ridiculus risus a porttitor massa. Augue penatibus. Proin cum? Risus montes, turpis porta nunc tempor adipiscing adipiscing. Pulvinar quis. Elit lundium lectus nisi! Egestas velit nunc, mus! Dolor facilisis, nec nascetur cum, dictumst montes nisi, magna diam porta elit nisi ac, purus placerat, a ac purus rhoncus! Dolor etiam. Ridiculus et 
+    Town Name (as an h1 tag)
+    © Your Name • Thursday, 6 April 2020  
+    dolor ac! Massa, mid mid ultrices, rhoncus massa! Odio et arcu porta duis augue a facilisis vel duis nisi natoque tortor ultricies odio rhoncus elementum et dictumst risus. Dapibus sit, sit ac. Adipiscing?
+                    </p>
+                    <div class="articleImg">
+                        <img alt="article image" src="./images/photography-of-yellow-hibiscus-under-sunlight-666839-640x426.jpg">
+                    </div>
+                </article>
+            </div>
+            <div>
+                <section>
+                    <h2>Contact Us</h2>
+                    <div class="contactDiv">
+                        <div>
+                            <p class="contactHeading">Address:</p>
+                            <p class="contactBody">The Weather Center<br>123 Main Street<br>Franklin, MI 87654</p>
+                        </div>
+                        <div class="floatRight">
+                            <div>
+                                <p class="contactHeading">Phone:</p>
+                                <p class="contactBody">(801) 555-1234</p>
+                            </div>
+                            <div>
+                                <p class="contactHeading">Email:</p>
+                                <p class="contactBody email">purnelldarrell&commat;pdconsult.com</p>
+                            </div>
+                        </div>
+                        <div class="contactMap">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47365.77383395362!2d-111.91525853115691!3d42.09974165247526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8754f78c7cda6c31%3A0xf1b3b4fc465a4a3f!2sPreston%2C%20ID%2083263!5e0!3m2!1sen!2sus!4v1581381847738!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <div id="footerWrapper">
+            <footer>
+                <div>
+                    <div id="copyright">&copy; </div>
+                    <div>Weather by OpenWeatherMap openweathermap.org <span><a href="./OpenWeather_license.txt" target="_blank">license</a></span></div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: [
+                    'Barlow',
+                    'Source Sans Pro'
+                    ]
+                }
+            });
+        </script>     
+    </body>
+</html>

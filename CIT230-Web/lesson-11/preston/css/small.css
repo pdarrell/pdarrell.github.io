@@ -1,0 +1,303 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+body 
+{
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+#banner
+{
+    background-color: #efff1c;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: .2rem;
+    margin: 0;
+}
+
+.hideBanner
+{
+    display: none;
+}
+
+.showBanner
+{
+    display: block;
+}
+
+header 
+{
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: .1rem;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+}
+
+header h1 
+{
+    font-size: 1.3rem;
+}
+
+header h2 
+{
+    font-size: 1rem;
+}
+
+header img 
+{
+    float: left;
+    width: 80px;
+    padding: 0;
+    margin: 0;
+}
+
+nav 
+{
+    font-size: 16px;
+}
+
+nav button 
+{
+    margin: .1rem 2%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+
+}
+
+nav ul 
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 2%;
+}
+
+nav ul li a 
+{
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    color: white;
+    font-size: 1.3rem;
+    padding: .1rem;
+    margin: .1rem 0 0 2%;
+}
+
+nav ul li.active a
+{
+    background-color: #efff1c;
+    color: black;
+}
+
+nav ul li a:hover 
+{
+    background-color: #001ac9;
+}
+
+nav ul.hide
+{
+    display: none;
+}
+
+main 
+{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+main h1 
+{
+    padding: 0 .8rem 0 .8rem;
+    text-align: left;
+}
+
+main div 
+{
+    padding: 0;
+    margin: 0;
+}
+
+main div section 
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+main div section h2, h3 
+{
+    padding: 0 .8rem 0 .8rem;
+} 
+
+main div section article 
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+main div h2
+{
+    padding: 0 .8rem 0 .8rem;  
+}
+
+main div article p
+{
+    padding: 0 .8rem 0 .8rem;  
+}
+
+.herodiv 
+{
+    position: relative;
+    width: 100%;
+}
+
+.heroImg 
+{
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+main img 
+{
+    width: 100%;
+    height: auto;
+    border: 1px solid #000;
+}
+
+#weatherSummary
+{
+    position: absolute;
+    background-color: rgba(0, 26, 201, 0.4);
+    color: #fff;
+    padding: .2rem;
+    margin: .7rem;
+    width: 55%;
+    height: auto;
+    float: left;
+    top: -3px;
+    line-height: .8rem;
+}
+
+#weatherSummary h2
+{
+    font-size: .9rem;
+}
+
+#weatherSummary p
+{ 
+    font-size: .8rem;
+    padding: 0 1rem 0 1rem;
+}
+
+#weatherSummary .leftspan
+{ 
+    font-size: .8rem;
+    padding: 0 0 0 1rem;
+}
+
+.forecast 
+{
+    display: none;
+}
+
+#fivedayforecast 
+{
+    display: none;
+}
+
+.articleImg 
+{
+    padding: 0 .8rem 0 .8rem;
+}
+
+.contactDiv 
+{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 1rem 0 1.2rem;
+}
+
+.contactHeading 
+{
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: 0;
+}
+
+.contactBody 
+{
+    padding: 0;
+    line-height: 125%;
+}
+
+.floatRight
+{
+    float: right;
+    position: relative;
+    padding: 0 .8rem;
+    width: 50%;
+}
+
+.email
+ {
+    word-wrap: break-word;
+ } 
+
+.contactMap
+{
+    display: none;
+}
+
+footer 
+{
+    width: 100%;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: 1rem;
+}
+
+footer div 
+{
+    position: relative;
+    margin: 0;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+#headerWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+#navWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+#footerWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

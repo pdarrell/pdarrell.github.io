@@ -1,0 +1,236 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+body 
+{
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+#banner
+{
+    background-color: #efff1c;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: .2rem;
+    margin: 0;
+}
+
+.hideBanner
+{
+    display: none;
+}
+
+.showBanner
+{
+    display: block;
+}
+
+header 
+{
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: .1rem;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+}
+
+header h1 
+{
+    font-size: 1.3rem;
+}
+
+header h2 
+{
+    font-size: 1rem;
+}
+
+header img 
+{
+    float: left;
+    width: 80px;
+    padding: 0;
+    margin: 0;
+}
+
+nav 
+{
+    font-size: 16px;
+}
+
+nav button 
+{
+    margin: .1rem 2%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+
+}
+
+nav ul 
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 2%;
+}
+
+nav ul li a 
+{
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    color: white;
+    font-size: 1.3rem;
+    padding: .1rem;
+    margin: .1rem 0 0 2%;
+}
+
+nav ul li.active a
+{
+    background-color: #efff1c;
+    color: black;
+}
+
+nav ul li a:hover 
+{
+    background-color: #001ac9;
+}
+
+nav ul.hide
+{
+    display: none;
+}
+
+main form
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+}
+
+main h1 
+{
+    padding: 0 .8rem 0 .8rem;
+    text-align: left;
+}
+
+main p 
+{
+    padding: 0 .8rem 0 .8rem;
+    text-align: left;
+}
+
+main form label 
+{
+    display: block;
+    padding: .8rem .8rem 0 .8rem;
+    text-align: left;
+}
+
+main form label input, select, textarea 
+{
+    display: block;
+    padding: 0;
+    margin: 0;   
+    height: 44px;
+}
+
+main form label textarea 
+{
+    height: 150px;
+}
+
+main form label input:required
+{
+    border: 2px dashed red;
+}
+
+main form label input:valid
+{
+    border: 2px solid green;
+}
+
+main form div
+{
+    padding: .8rem .8rem 0 .8rem;
+}
+
+main form div label
+{
+    padding: 0;
+}
+
+main form div label input[type=radio] 
+{
+    display: inline;
+    padding: 0;
+    margin: 0 .8rem 0 .8rem;
+}
+
+main form div label input[type=radio].indanger
+{
+    height: auto;
+}
+
+main form input 
+{
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+main form input[type=submit] 
+{
+    padding: .8rem;
+    margin: .8rem 0 .8rem 0;
+    background-color: #001ac9;
+    color: #fff;
+}
+
+footer 
+{
+    width: 100%;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: 1rem;
+}
+
+footer div 
+{
+    position: relative;
+    margin: 0;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+#headerWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+#navWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+#footerWrapper
+{
+    background-color: #93d2ea;
+    width: 100%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  

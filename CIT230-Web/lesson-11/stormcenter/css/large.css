@@ -1,0 +1,19 @@
+@media only screen and (min-width: 60em) 
+{
+    
+    header, nav, main, footer 
+    {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    
+    main h1 
+    {
+        padding: 0 .8rem 0 .8rem;
+        text-align: left;
+    }
+
+    
+    
+
+}
