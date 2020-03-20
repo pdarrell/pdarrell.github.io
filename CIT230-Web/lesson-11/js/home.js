@@ -47,6 +47,20 @@ fetch(requestURL)
             image.setAttribute('alt', towns[i].name + ' - ' + towns[i].currentPopulation);
             townSection.appendChild(image);
 
+            let events = document.createElement('div');
+            events.id = "events";
+            let eventsH2 = document.createElement('h2');
+            eventsH2.textContent = 'Events';
+            events.appendChild(eventsH2);
+            const townEvents = towns[i].events;
+            for (let e=0; e<townEvents.length; e++) 
+            {
+                let eventText = document.createElement('p');
+                eventText.textContent = townEvents[e];
+                events.appendChild(eventText);
+            }
+            townSection.appendChild(events);
+
             document.querySelector('div.towns').appendChild(townSection);
         }
     }
