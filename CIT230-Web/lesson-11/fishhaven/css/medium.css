@@ -138,7 +138,6 @@
     { 
         display: block;
         padding: 0 .8rem 0 0;
-        flex: 1fr;
     }
 
     main div article div p
@@ -152,7 +151,6 @@
         width: 55%;
         float: right;
         padding: .8rem;
-        flex: 1fr;
     }
 
     .articleImg img 

@@ -74,11 +74,6 @@
         flex-wrap: wrap;
     }
 
-    main div section div
-    {
-        flex: 1fr;
-    }
-
     main div section div h2, h3, p 
     {
         display: block;
@@ -89,11 +84,6 @@
         position: relative;
         width: 320px;
         margin: .8rem;
-    }
-
-    main div section div#events
-    {
-        flex: 1fr;
     }
     
     main div section:nth-child(odd)
