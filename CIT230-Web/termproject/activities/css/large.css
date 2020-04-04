@@ -1,0 +1,49 @@
+@media only screen and (min-width: 60em) 
+{
+    
+    header, nav, main, footer, div#wireframes 
+    {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    
+    main div 
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    main div section
+    {
+       
+        display: flex;
+        flex-direction: column;
+    }
+
+    main div section
+    {
+        width: 100%;
+        display: block;
+    }
+
+    main h1 
+    {
+        padding: 0 .8rem 0 .8rem;
+        text-align: center;
+    }
+
+    main div section img
+    {
+        display: relative;
+        width: 50%;
+        padding: 0 1rem 0 1rem;
+        margin: 0 auto;
+        float: left;
+    }
+
+    main div section p 
+    {
+        text-align: left;
+    }
+
+}

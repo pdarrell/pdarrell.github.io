@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us"> 
+    <head>
+        <title>Home: Valley Forge Historical National Park</title>
+        <meta name="description" content="Home page for Valley Forge Historical National Park site">
+        <meta lang="en-us" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/normalize.css" rel="stylesheet">
+        <link href="./css/small.css" rel="stylesheet">
+        <link href="./css/medium.css" rel="stylesheet">
+        <link href="./css/large.css" rel="stylesheet">
+        <script src="./js/termproject.js"></script>
+    </head>
+    <body onload="contactCopyright();">
+        <div id="headerWrapper">
+            <header>
+                <div>
+                    <H1>Valley Forge Historical National Park</H1>
+                    <h2>Valley Forge, Pennsylvania</h2>
+                </div>
+                <a href="./index.html"><img alt="Park Logo" src="./images/parklogo.jpg" class="imgSize"></a>
+            </header>
+        </div>
+        <div id="navWrapper">
+            <nav class="clearfix">
+                <button onclick="toggleMenu()">&#9776; Menu</button>
+                <ul id="primaryNav" class="hide">
+                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li><a href="./activities/activities.html">Activities</a></li>
+                    <li><a href="./visit/visit.html">Visit</a></li>
+                    <li><a href="./contactus/contactus.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <h1>Home</h1>
+            <div id="forecast">
+                <h2>Five Day Forecast</h2>
+                <section id="fivedayforecast">
+                </section>
+            </div>
+            <div>
+                <picture>
+                    <source media="(max-width: 600px)" srcset="./images/600_small_valley-forge-national-park-4384268_1920.jpg">
+                    <source media="(max-width: 1024px)" srcset="./images/800_medium_valley-forge-national-park-4384268_1920.jpg">   
+                    <source media="(max-width 1280px)" srcset="./images/1024_large_valley-forge-national-park-4384268_1920.jpg"> 
+                    <img alt="park default picture" src="./images/1024_large_valley-forge-national-park-4384268_1920.jpg">
+                </picture>
+            </div>
+        </main>
+        <div id="footerWrapper">
+            <footer>
+                <div>
+                    <div id="copyright">&copy; </div>
+                </div>
+                <div class="portalpage">
+                    <a href="../index.html">Portal Home page</a>
+                </div>
+                <div>Weather by OpenWeatherMap openweathermap.org <span><a href="./OpenWeather_license.txt" target="_blank">license</a></span></div>
+            </footer>
+        </div>
+    </body>
+</html>
