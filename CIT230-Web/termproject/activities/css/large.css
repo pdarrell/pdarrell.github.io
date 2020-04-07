@@ -46,4 +46,9 @@
         text-align: left;
     }
 
+    footer 
+    {
+        margin: .5rem 0;
+    }
+
 }

@@ -59,27 +59,7 @@
     img 
     {
         max-width: 1024px;
-    }
-
-    main div
-    {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    main div h2
-    {
-        text-align: center;
-    }
-    
-    main div section 
-    {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: .5rem;
-        margin: 0 auto;
-    }
+    }    
 
     main div h2
     {
@@ -87,23 +67,41 @@
         padding: .5rem;
     }
 
-    main div section div
+    main div form section 
     {
-        min-width: 110px;
-        width: 15%;
-        padding: .5rem
+        width: 98%;
+        margin: .5rem;
+    }
+   
+    main div form section label 
+    {
+        text-align: center;
+        padding: .5rem .5rem .5rem .5rem;
     }
 
-    main div section div h2, h3, h5, p 
+    main div form section input, select 
     {
-        display: block;
-    } 
+        margin: 0;
+    }
 
-    main div section div img
+    main div form section textarea 
     {
-        position: relative;
-        width: 90%;
-        margin: 0 auto;
+        margin: 0;
+    }
+
+    main div form section div 
+    {
+        text-align: center;
+        padding: .5rem;
+        margin: 0;
+        font-size: 1rem;
+        
+    }
+
+    main div form section div label
+    { 
+        text-align: center;
+        font-size: 1rem;
     }
 
     footer .sitemap img

@@ -35,8 +35,63 @@
         <main>
             <h1>Visit</h1>
             <div>
-                
-                
+                <form id="visitform" action="./thankyou.html">
+                    <section>
+                        <h3>Sponoring Organization</h3>
+                        <label id="organization" >
+                            Name of organization: 
+                            <input type="text" required="required" name="organization">
+                        </label>
+                        <label id="leaderName" >
+                            Name of group leader: 
+                            <input type="text" required="required" name="leader">
+                        </label>
+                        <label id="leaderEmail" >
+                            Email of group leader: 
+                            <input type="email" required="required" name="email">
+                        </label>
+                    </section>
+                    <section>
+                        <h3>Group Information</h3>
+                        <label id="groupSize" >
+                            Group size: 
+                            <input type="number" minlength="1" maxlength="3" name="groupsize">
+                        </label>
+                        <label id="Gender" >
+                            Gender: 
+                            <select select="gender" name="genderselect">
+                                <option value=""></option>
+                                <option value="boys">boys</option>
+                                <option value="girls">girls</option>
+                                <option value="mixed">mixed</option>
+                            </select>
+                        </label>
+                    </section>
+                    <section>
+                        <div id="meals">
+                            Meals: 
+                            <label  >
+                                <input type="radio" id="mealsYes" name="mealyes" valeu="Yes">
+                                Yes
+                            </label>
+                            <label  >
+                                <input type="radio" id="mealsNo" name="mealno" value="No">
+                                No
+                            </label>
+                        </div>
+                        <label id="dateVisit" >
+                            Date of visit: 
+                            <input type="date" name="datevisit">
+                        </label>
+                        <label id="comment" >
+                            Comments: 
+                            <textarea name="comment" ></textarea>
+                        </label>
+                    </section>
+                    <div>
+                        <input type="submit" id="formsubmit" title="Submit Visit" name="Submit Visit" value="Submit Visit">
+                    </div>
+                </form>
             </div>
         </main>
         <div id="footerWrapper">
