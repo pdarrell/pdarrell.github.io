@@ -8,7 +8,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 body 
 {
     width: 100%;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 16px;
     margin: 0 auto;
 }
@@ -34,7 +34,7 @@ body
 
 header 
 {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 16px;
     padding: .1rem;
     text-align: center;
@@ -127,7 +127,7 @@ main h1
 
 main div h2 
 {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 1.5rem;
     padding: 0;
     margin: .5rem;
@@ -143,6 +143,7 @@ main div p
 
 main div form section 
 {
+    font-family: 'Sen', sans-serif;
     display: block;
     text-align: center;
     margin: .5rem;
@@ -151,7 +152,7 @@ main div form section
 
 main div form section div 
 {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Sen', sans-serif;
     font-size: 1.5rem;
     padding: 0;
     margin: .5rem;
@@ -226,13 +227,14 @@ main div form input[type=submit]
     border: 2px solid #d64933;
     padding: .5rem;
     margin: .5rem;
+    font-family: 'Anton', sans-serif;
 }
 
 
 footer 
 {
     width: 100%;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 16px;
     padding: 1rem;
 }

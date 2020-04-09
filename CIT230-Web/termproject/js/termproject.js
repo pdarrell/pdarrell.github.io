@@ -127,7 +127,7 @@ function updateStormSeverityLabel()
 
 function forecast()
 {
-    const apiForecastURL = "//api.openweathermap.org/data/2.5/forecast?id=5604473&units=imperial&APPID=5c27898ab10ffcaa281096e13e364005";
+    const apiForecastURL = "//api.openweathermap.org/data/2.5/forecast?id=5217005&units=imperial&APPID=5c27898ab10ffcaa281096e13e364005";
     
     fetch(apiForecastURL)
     .then((response) => response.json())

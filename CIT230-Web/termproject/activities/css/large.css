@@ -15,13 +15,6 @@
 
     main div section
     {
-       
-        display: flex;
-        flex-direction: column;
-    }
-
-    main div section
-    {
         width: 100%;
         display: block;
     }
@@ -34,21 +27,23 @@
 
     main div section img
     {
-        display: relative;
-        width: 50%;
+        display: block;
+        position: relative;
+        width: 100%;
+        height: auto;
         padding: 0 1rem 0 1rem;
         margin: 0 auto;
-        float: left;
     }
 
     main div section p 
     {
-        text-align: left;
+        display: block;
+        text-align: center;
     }
 
     footer 
     {
-        margin: .5rem 0;
+        margin: .5rem auto;
     }
 
 }

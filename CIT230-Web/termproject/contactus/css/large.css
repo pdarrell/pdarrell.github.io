@@ -1,37 +1,16 @@
 @media only screen and (min-width: 60em) 
 {
     
-    header, nav, main, footer, div#wireframes 
+    header, nav, main, footer 
     {
         max-width: 1024px;
         margin: 0 auto;
     }
-    
-    main div section
-    {
-        width: 90%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 1rem;
-    }
-
-    main div section div
-    {
-        width: 100%;
-        display: block;
-    }
 
     main h1 
     {
-        padding: 0 .8rem 0 .8rem;
+        padding: .5rem;
         text-align: center;
-    }
-
-    main div section img
-    {
-        width: 100%;
-        padding: 0 1rem 0 1rem;
-        margin: 0 auto;
     }
 
 }

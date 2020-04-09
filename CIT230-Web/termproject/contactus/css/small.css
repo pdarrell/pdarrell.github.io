@@ -8,7 +8,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 body 
 {
     width: 100%;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 16px;
     margin: 0 auto;
 }
@@ -34,7 +34,7 @@ body
 
 header 
 {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 16px;
     padding: .1rem;
     text-align: center;
@@ -50,6 +50,7 @@ header h1
 
 header h2 
 {
+    font-family: 'Nanum Gothic', sans-serif;
     font-size: 14pt;
     text-align: center;
 }
@@ -129,56 +130,38 @@ main div section
 {
     display: block;
     text-align: center;
-    margin: .5rem;
+    margin: 0;
 }
 
-main div section div 
+main div section div h3
 {
-    background-color: #d64933;
-}
-
-main div h2 
-{
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.5rem;
-    padding: 0;
-    margin: .5rem;
-    line-height: 1rem;
+    display: block;
     text-align: center;
-}
-
-main div section div 
-{
-    font-family: 'Barlow', sans-serif;
+    margin: 0;
+    padding: 1rem;
     font-size: 1.5rem;
-    padding: 0;
-    margin: .5rem;
-    line-height: 1rem;
 }
 
-main div section div h3 
+main div section div p
 {
-    padding: 0;
-    margin: .7rem .8rem .8rem .8rem;
-    line-height: 1rem;
-}
-
-main div section div h2, h3, h5, p 
-{
+    display: block;
     text-align: center;
+    padding: .5rem;
+    margin: 0;
+    line-height: 1.5rem;
+    font-family: 'Sen', sans-serif;
 }
 
-main div section div img
+main div section div iframe 
 {
-    width: 25%;
-    padding: 0;
-    margin: 0 auto;
+    padding: .5rem;
+    width: 350px;
 }
 
 footer 
 {
     width: 100%;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 16px;
     padding: 1rem;
 }

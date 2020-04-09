@@ -61,49 +61,17 @@
         max-width: 1024px;
     }
 
-    main div
-    {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    main div h2
-    {
-        text-align: center;
-    }
-    
     main div section 
     {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: .5rem;
-        margin: 0 auto;
-    }
-
-    main div h2
-    {
-        text-align: center;
-        padding: .5rem;
-    }
-
-    main div section div
-    {
-        min-width: 110px;
-        width: 15%;
-        padding: .5rem
-    }
-
-    main div section div h2, h3, h5, p 
-    {
         display: block;
-    } 
-
-    main div section div img
-    {
-        position: relative;
-        width: 90%;
+        text-align: center;
         margin: 0 auto;
+    }
+
+    main div section div iframe 
+    {
+        width: 600px;
+        
     }
 
     footer .sitemap img
